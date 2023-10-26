@@ -1,0 +1,33 @@
+export interface Post {
+  id: string
+  categoryId: string
+  author: Author
+  title: string
+  body: string
+  anonymous?: boolean
+  published: boolean
+  publishedAt: string
+  group: string
+  number: number
+  type: string
+  visibility: string
+  slug: string
+  createdAt: string
+  updatedAt: string
+  answersCount?: number
+  uniqueViewsCount: number
+  viewsCount: number
+  answeredAt?: string
+  modAnsweredAt?: string
+  read?: boolean
+  conversation: Conversation
+  comments: Comment[]
+  lastEditedAt?: string
+  votesCount?: number
+  voted?: boolean
+  likesCount?: number
+  pinPosition?: number
+  pollClosesAt?: string
+  pollOptions?: PollOption[]
+  liked?: boolean
+}
