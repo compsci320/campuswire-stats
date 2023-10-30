@@ -26,7 +26,7 @@ export interface Post {
     lastEditedAt: string
     votesCount: number
     voted: boolean
-    likesCount?: number
+    likesCount: number
     // only like 4 posts have these, probably not necessary
     // pinPosition?: number
     // pollClosesAt?: string
