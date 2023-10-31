@@ -1,3 +1,4 @@
+// TODO: add question marks for fields that are not required -> actually that's probably not necessary
 export interface Post {
     id: string
     categoryId: string
@@ -14,19 +15,19 @@ export interface Post {
     slug: string
     createdAt: string
     updatedAt: string
-    answersCount: number
+    answersCount?: number
     uniqueViewsCount: number
     viewsCount: number
-    answeredAt: string
-    modAnsweredAt: string
-    read: boolean
+    answeredAt?: string
+    modAnsweredAt?: string
+    read?: boolean
     conversation: Conversation
     comments: Comment[]
     // only some posts have the stuff below this
-    lastEditedAt: string
-    votesCount: number
-    voted: boolean
-    likesCount: number
+    lastEditedAt?: string
+    votesCount?: number
+    voted?: boolean
+    likesCount?: number
     // only like 4 posts have these, probably not necessary
     // pinPosition?: number
     // pollClosesAt?: string
@@ -60,7 +61,7 @@ export interface Conversation {
     post: string
     subscribers: Subscriber[]
     // only some coversations have this
-    messagesCount: number
+    messagesCount?: number
 }
 
 // first message has author while last message does not in the json
