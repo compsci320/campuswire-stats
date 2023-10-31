@@ -1,8 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Post } from './models/Post';
 
 function App() {
+  let post_data: Post[] = require('./mock/mock.json');
+  console.log(post_data[279].number);
   return (
     <div className="App">
       <header className="App-header">
