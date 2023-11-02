@@ -1,14 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TrendingPage from "./pages/trending-page/TrendingPage";
-import EngagementPage from './pages/engagement-page/engagement-page';
+import EngagementPage from './pages/engagement-page/EngagementPage';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<EngagementPage />}>
+        <Route path="/" element={<TrendingPage />}>
         </Route>
+
+        <Route path="/engagement" element={<EngagementPage />}>
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
