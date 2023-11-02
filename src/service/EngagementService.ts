@@ -2,6 +2,7 @@ import {EngagementViewModel} from "../viewmodels/Engagement";
 import {Post} from "../models/Post";
 import { isMinusToken } from "typescript";
 
+// TODO: set up scraping to work in just one iteration through the posts array
 export function createViewModel(posts: Post[]): EngagementViewModel {
     // map ids to names [first, last]
     let nameMap = getNameMap(posts);
