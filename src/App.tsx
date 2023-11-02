@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
 import Router from './Router';
 import Navbar from './components/navbar/navbar';
 import {Post} from './models/Post';
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="app">
       <Navbar />
-      <Router />  
+      <RouterProvider router={Router} />  
     </div>  
   );
 }
