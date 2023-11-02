@@ -1,5 +1,5 @@
 export interface EngagementViewModel {
-    authorNames: string[];
-    authorTotalPosts: number[];
-    authorLastPostDates: string[];
+    idToNames: Map<string, string[]>;
+    idToTotalPosts: Map<string, number>;
+    idToLastSeen: Map<string, string>;
 }
