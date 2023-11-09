@@ -3,7 +3,7 @@ import './MainLayout.css';
 import { Drawer, IconButton } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../navbar/Navbar';
+import Navbar from '../navbar/navbar';
 
 function MainLayout() {
     const [state, setState] = React.useState({ open: false });
