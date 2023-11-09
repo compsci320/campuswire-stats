@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import Router from './Router';
-import Navbar from './components/navbar/navbar';
 import {Post} from './models/Post';
 
 function App() {
@@ -10,10 +9,7 @@ function App() {
   console.log(post_data[279].number);
   
   return (
-    <div className="app">
-      <Navbar />
-      <RouterProvider router={Router} />  
-    </div>  
+    <RouterProvider router={Router} />    
   );
 }
 
