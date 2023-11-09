@@ -113,3 +113,36 @@ function getLastSeen(post_data: Post[]): Map<string, Date> {
 
     return result;
 }
+
+// Unique user id 
+function getActiveUsersByDate(post_data: Post[]): Map<string, Set<string>> {
+    let lastSeenMap = getLastSeen(post_data);
+    let dateActivityMap = new Map<string, Set<string>>();
+
+    lastSeenMap.forEach((date, userId) => {
+        // Extract only the date part, excluding the time
+        let dateString = date.toISOString().split('T')[0];
+
+        if (!dateActivityMap.has(dateString)) {
+            dateActivityMap.set(dateString, new Set());
+        }
+        dateActivityMap.get(dateString)!.add(userId);
+    });
+
+    return dateActivityMap;
+}
+
+// Unique user count by date
+function getUniqueUserCountByDate(post_data: Post[]): Map<string, number> {
+    let activeUsersByDate = getActiveUsersByDate(post_data);
+    let uniqueUserCountMap = new Map<string, number>();
+
+    activeUsersByDate.forEach((users, date) => {
+        uniqueUserCountMap.set(date, users.size);
+    });
+
+    return uniqueUserCountMap;
+}
+
+
+
