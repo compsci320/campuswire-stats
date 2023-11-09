@@ -1,9 +1,14 @@
 import React from 'react';
 import './EngagementPage.css';
+import Navbar from '../../components/navbar/Navbar';
+import Engagetable from '../../components/engagetable/Engagetable';
 
 function EngagementPage() {
   return (
-    <h1>PLACEHOLDER</h1>
+    <>
+        <Navbar />
+        <Engagetable />
+    </>
   );
 }
 
