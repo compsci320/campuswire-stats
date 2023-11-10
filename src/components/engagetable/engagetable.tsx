@@ -9,22 +9,6 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow'; 
 
  
-//******************************* Random Data Generation *******************************
-
-/**const columns: readonly Column[] = [
-  { id: 'name', label: 'Name', minWidth: 100 },
-  { id: 'totalPosts', label: 'Total Posts', minWidth: 100, align: 'right' },
-  {
-    id: 'lastSeenDaysAgo',
-    label: 'Last Seen (Days Ago)',
-    minWidth: 100,
-    align: 'right',
-    format: (value: number) => value.toString(),
-  },
-];
-**/
-
-// ******* end random data generation ********
 export interface Column {
   id: 'name' | 'numPosts' | 'lastSeen';
   label: string;
@@ -34,11 +18,16 @@ export interface Column {
 
 export interface Data {
   name: string;
-  totalPosts: string;
+  numPosts: string;
   lastSeen: string;
 }
 
-export default function StickyHeadTable(props: {columns: readonly Column[], rows: Data[]}) {
+interface MyComponentProps {
+  columns: readonly Column[];
+  rows: Data[];
+}
+
+export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns, rows}) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -57,7 +46,7 @@ export default function StickyHeadTable(props: {columns: readonly Column[], rows
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {props.columns.map((column) => (
+              {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
@@ -69,12 +58,12 @@ export default function StickyHeadTable(props: {columns: readonly Column[], rows
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.rows
+            {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
-                    {props.columns.map((column) => {
+                    {columns.map((column) => {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
@@ -91,7 +80,7 @@ export default function StickyHeadTable(props: {columns: readonly Column[], rows
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={props.rows.length}
+        count={rows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

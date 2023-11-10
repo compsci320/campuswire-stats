@@ -3,9 +3,8 @@ import './EngagementPage.css';
 import Navbar from '../../components/navbar/navbar';
 import { createViewModel } from '../../service/EngagementService';
 import {Post} from "../../models/Post";
-import StickyHeadTable from '../../components/engagetable/engagetable';
-import Column from '../../components/engagetable/engagetable';
-import Data from '../../components/engagetable/engagetable';
+import { Engagetable, Column, Data } from '../../components/engagetable/engagetable';
+
 
 
 let post_data: Post[] = require('../../mock/mock.json');
@@ -28,23 +27,21 @@ const columns: Column[] = [
   { id: 'lastSeen', label: 'Last Seen', minWidth: 100 },
 ];
 
-function createData(name: string, totalPosts: number, lastSeen: Date): Data {
-  return { name, totalPosts, lastSeen };
+function createData(name: string, numPosts: string, lastSeen: string): Data {
+  return { name, numPosts, lastSeen };
 }
 
 const rows = nameArray.map((name, index) => createData(name, numPostsArray[index], lastSeenArray[index]));
-
-const engagetable = StickyHeadTable(columns, rows);
-
 
 
 function EngagementPage() {
   return (
     <>
         <Navbar />
-        <engagetable />
+        <Engagetable columns={columns} rows={rows} />
     </>
   );
-}
+  }
+
 
 export default EngagementPage;
