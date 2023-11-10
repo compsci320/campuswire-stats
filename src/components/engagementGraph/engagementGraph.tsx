@@ -22,6 +22,7 @@ let series_template = [
     },
   ] as AllSeriesType[];
   
+// TODO: add toggle button component to make graph more interactive
 export function EngagementGraph({engagement_data, x_title, x_axis}: {engagement_data: number[], x_title: string, x_axis: number[]}) {
   series_template[0].data = engagement_data;
   
