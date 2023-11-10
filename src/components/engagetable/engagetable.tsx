@@ -6,47 +6,28 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
+import TableRow from '@mui/material/TableRow'; 
 
-//******************************* Random Data Generation *******************************
-interface Column {
-  id: 'name' | 'totalPosts' | 'lastSeenDaysAgo';
+ 
+export interface Column {
+  id: 'name' | 'numPosts' | 'lastSeen';
   label: string;
   minWidth?: number;
   align?: 'right';
-  format?: (value: number) => string;
 }
 
-const columns: readonly Column[] = [
-  { id: 'name', label: 'Name', minWidth: 100 },
-  { id: 'totalPosts', label: 'Total Posts', minWidth: 100, align: 'right' },
-  {
-    id: 'lastSeenDaysAgo',
-    label: 'Last Seen (Days Ago)',
-    minWidth: 100,
-    align: 'right',
-    format: (value: number) => value.toString(),
-  },
-];
-
-interface Data {
+export interface Data {
   name: string;
-  totalPosts: number;
-  lastSeenDaysAgo: number;
+  numPosts: string;
+  lastSeen: string;
 }
 
-function createData(name: string, totalPosts: number, lastSeenDaysAgo: number): Data {
-  return { name, totalPosts, lastSeenDaysAgo };
+interface MyComponentProps {
+  columns: readonly Column[];
+  rows: Data[];
 }
 
-const names = ['John', 'Jane', 'Mary', 'James', 'Emma', 'Jacob', 'Olivia', 'Noah', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Harper', 'Evelyn', 'Abigail'];
-const rows = names.map(name => createData(name, Math.floor(Math.random() * 1000), Math.floor(Math.random() * 365)));
-
-// ******* end random data generation ********
-
-
-
-export default function StickyHeadTable() {
+export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns, rows}) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -86,9 +67,7 @@ export default function StickyHeadTable() {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
+                          {value}
                         </TableCell>
                       );
                     })}
