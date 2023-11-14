@@ -1,23 +1,19 @@
 import nltk
-import sys
 import json
 from nltk.corpus import stopwords
-from flask import Flask, jsonify
-from flask import request, jsonify
-from flask_cors import CORS  # Import CORS from flask_cors
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/app/*": {"origins": "http://localhost:3000"}})
+
 
 nltk.download('stopwords')
-print('in the function')
 
 
-@app.route('/api/words', methods=['POST'])
+@app.route('/app/get_data', methods=['OPTIONS', 'GET', 'POST'])
 def get_data():
-    print("in the server")
     try:
-        print("trying")
         request_data = json.loads(request.data)
         titles = request_data.get('titles', [])
 
@@ -35,9 +31,9 @@ def get_data():
         for key, value in data:
             print(key + "; " + str(value))
         print(data)
-        return jsonify({"words": [item[0] for item in data][:5]})
+        return jsonify({"words": [item[0] for item in data][:5]}), 200, {'Content-Type': 'application/json'}
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e)}), 500, {'Content-Type': 'application/json'}
 
 
 if __name__ == '__main__':
