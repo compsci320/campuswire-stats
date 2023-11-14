@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './trendbar.css';
 import TrendOption from '../trend-option/trend-option';
+import MovingIcon from '@mui/icons-material/Moving';
 import mock_data from '../../mock/mock.json';
 
 const trendingTopics = [
@@ -9,7 +10,7 @@ const trendingTopics = [
   { name: "Attendance" },
 ]
 
-function Trendbar() {
+function Trendbar(props: { trend: string, setTrend: (newTrend: string) => void }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -36,12 +37,23 @@ function Trendbar() {
     };
 
     fetchData();
+
+    props.setTrend(trendingTopics[0].name);
   }, []);
   console.log(data);
-  const options = trendingTopics.map((elem, idx) => <TrendOption key={idx} name={elem.name} />);
+
+  const options = trendingTopics.map(topic => (
+    <TrendOption 
+      name={topic.name} 
+      trend={props.trend} 
+      setTrend={props.setTrend}
+    />
+  ));
+
   return (
     <div className="trendbar">
       <div className="trendbar-title">Trending</div>
+      <MovingIcon sx={{ color: 'white', fontSize: 35 }}/>
       <div className="trendbar-options">{options}</div>
     </div>
   );

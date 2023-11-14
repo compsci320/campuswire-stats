@@ -1,10 +1,27 @@
-.trend-option {
+.trend-option-selected {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #4BC95F;
+    border-radius: 20px;
+
     background-color: #4BC95F;
+    min-width: 100px;
+
+    padding: 0px 20px 0px 20px;
+
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.trend-option-default {
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
     border-radius: 20px;
     min-width: 100px;
 
-    padding: 0px 20px 3px 20px;
-    margin-right: 75px;
+    padding: 0px 20px 0px 20px;
 
     font-size: 18px;
     text-align: center;
