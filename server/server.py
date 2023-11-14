@@ -10,8 +10,9 @@ app = Flask(__name__)
 CORS(app, origins="http://localhost:3000")
 
 
-@app.route('/<data>', methods=['GET'])
-def get_data(data):
+@app.route('/', methods=['POST', 'GET'])
+def get_data():
+    data = request.json
     titles = [text["title"] for text in data]
     word_key = {}
     for text in titles:
@@ -26,8 +27,8 @@ def get_data(data):
                     word_key[word.lower()] += word_list.count(word)
 
     word_key = sorted(word_key.items(), key=lambda x: x[1], reverse=True)
-    return jsonify({"words": [item[0].title() for item in word_key][:5]})
+    return json.dumps({"words": [item[0].title() for item in word_key][:5]})
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(port=5001)

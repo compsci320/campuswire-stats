@@ -7,7 +7,13 @@ function Trendbar() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/${mock_data}`).then(res => res.json()).then(data => { setData(data); console.log(data); }).catch(err => console.error(err));
+    fetch('http://localhost:5001/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mock_data)
+    }).then(res => res.json()).then(data => { setData(data); }).catch(err => console.error(err));
 
   });
   if (data === null) {
@@ -17,7 +23,7 @@ function Trendbar() {
   const options = wordList.map((elem, idx) => <TrendOption key={idx} name={elem} />);
   return (
     <div className="trendbar">
-      <div className="trendbar-title">Trending</div>
+      <div className="trendbar-title">Trending </div>
       <div className="trendbar-options">{options}</div>
     </div>
   );
