@@ -21,11 +21,20 @@ def get_data():
         stop_words = set(stopwords.words('english'))
         for word in word_tokens:
             if word not in stop_words:
-                if word.lower() not in word_key:
+                if ("office" in word.lower() or "hour" in word.lower()) and "office hours" not in word_key:
+                    word_key["office hours"] = word_list.count(word)
+                elif ("office" in word.lower() or "hour" in word.lower()):
+                    word_key["office hours"] += word_list.count(word)
+                elif ("hw" in word.lower() or "homework" in word.lower()) and "homework" not in word_key:
+                    word_key["homework"] = word_list.count(word)
+                elif ("hw" in word.lower() or "homework" in word.lower()):
+                    word_key["homework"] += word_list.count(word)
+                elif word.lower()[-1] == "s" and word.lower()[:-1] not in word_key:
+                    word_key[word.lower()[:-1]] = word_list.count(word)
+                elif word.lower() not in word_key:
                     word_key[word.lower()] = word_list.count(word)
                 else:
                     word_key[word.lower()] += word_list.count(word)
-
     word_key = sorted(word_key.items(), key=lambda x: x[1], reverse=True)
     return json.dumps({"words": [item[0].title() for item in word_key][:5]})
 
