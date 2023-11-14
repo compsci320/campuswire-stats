@@ -1,7 +1,7 @@
 import nltk
 import json
 from nltk.corpus import stopwords
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from flask_cors import CORS
 
 nltk.download('stopwords')
@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app, origins="http://localhost:3000")
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST'])
 def get_data():
     data = request.json
     titles = [text["title"] for text in data]
