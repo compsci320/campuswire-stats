@@ -1,10 +1,10 @@
 import React from 'react';
 import './EngagementPage.css';
-import Navbar from '../../components/navbar/navbar';
 import { createViewModel, getUniqueUserCountByDate, createEngagementChartData } from '../../service/EngagementService';
 import {Post} from "../../models/Post";
 import { Engagetable, Column, Data } from '../../components/engagetable/engagetable';
 import { EngagementGraph } from "../../components/engagementGraph/engagementGraph"
+import EngagementBar from '../../components/engagementbar/engagementbar';
 
 
 
@@ -40,8 +40,8 @@ function EngagementPage() {
     
   return (
     <>
-        <Navbar />
         <div>
+          <EngagementBar />
           <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
           <Engagetable columns={columns} rows={rows} />
         </div>

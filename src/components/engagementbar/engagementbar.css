@@ -1,0 +1,15 @@
+.engagementbar {
+    display: flex;
+    align-items: center;
+
+    background-color: #0084FF;
+    height: 75px;
+    flex: 1;
+}
+
+.engagementbar-title {
+    padding: 0px 10px 4px 20px;
+
+    color: white;
+    font-size: 30px;
+}
