@@ -1,10 +1,10 @@
 import React from 'react';
 import './EngagementPage.css';
-import Navbar from '../../components/navbar/navbar';
-import { createViewModel } from '../../service/EngagementService';
+import { createViewModel, getUniqueUserCountByDate, createEngagementChartData } from '../../service/EngagementService';
 import {Post} from "../../models/Post";
 import { Engagetable, Column, Data } from '../../components/engagetable/engagetable';
 import { EngagementGraph } from "../../components/engagementGraph/engagementGraph"
+import EngagementBar from '../../components/engagementbar/engagementbar';
 
 
 
@@ -36,11 +36,15 @@ const rows = nameArray.map((name, index) => createData(name, numPostsArray[index
 
 
 function EngagementPage() {
+  const chartData = createEngagementChartData(post_data);
+    
   return (
     <>
-        <Navbar />
-        <EngagementGraph engagement_data={[2, 5, 3, 4, 1, 3, 8, 9]} x_title={"Years"} x_axis={[2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]}/>
-        <Engagetable columns={columns} rows={rows} />
+        <div>
+          <EngagementBar />
+          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
+          <Engagetable columns={columns} rows={rows} />
+        </div>
     </>
   );
   }

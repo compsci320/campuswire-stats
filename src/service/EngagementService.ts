@@ -2,6 +2,20 @@ import {EngagementViewModel} from "../viewmodels/Engagement";
 import {Post} from "../models/Post";
 import { isMinusToken } from "typescript";
 
+export function createEngagementChartData(post_data: Post[]): {x: string[], y: number[]} {
+    const userCountByDate = getUniqueUserCountByDate(post_data);
+    let x_axis: string[] = [];
+    let engagement_data: number[] = [];
+    
+    userCountByDate.forEach((value, key) => {
+      x_axis.push(key);
+      engagement_data.push(value);
+    });
+  
+    return {x: x_axis, y: engagement_data};
+}
+
+
 // TODO: set up scraping to work in just one iteration through the posts array
 export function createViewModel(posts: Post[]): EngagementViewModel {
     // map ids to names [first, last]
@@ -133,7 +147,7 @@ function getActiveUsersByDate(post_data: Post[]): Map<string, Set<string>> {
 }
 
 // Unique user count by date
-function getUniqueUserCountByDate(post_data: Post[]): Map<string, number> {
+export function getUniqueUserCountByDate(post_data: Post[]): Map<string, number> {
     let activeUsersByDate = getActiveUsersByDate(post_data);
     let uniqueUserCountMap = new Map<string, number>();
 

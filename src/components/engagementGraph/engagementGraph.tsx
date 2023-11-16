@@ -17,12 +17,13 @@ let series_template = [
     {
       type: 'line',
       yAxisKey: 'users',
-      color: '#2CA6FF',
+      color: 'red',
       data: [1, 2, 3, 4, 5],
     },
   ] as AllSeriesType[];
-  
-export function EngagementGraph({engagement_data, x_title, x_axis}: {engagement_data: number[], x_title: string, x_axis: number[]}) {
+
+// TODO: add toggle button component to make graph more interactive
+export function EngagementGraph({engagement_data, x_title, x_axis}: {engagement_data: number[], x_title: string, x_axis: string[]}) {
   series_template[0].data = engagement_data;
   
   // Create average value at each point
@@ -35,14 +36,13 @@ export function EngagementGraph({engagement_data, x_title, x_axis}: {engagement_
   return (
     <ChartContainer
       series={series_template}
-      width={500}
-      height={400}
+      width={1000}
+      height={500}
       xAxis={[
         {
           id: x_title,
           data: x_axis,
           scaleType: 'band',
-          valueFormatter: (value) => value.toString(),
         },
       ]}
       yAxis={[
