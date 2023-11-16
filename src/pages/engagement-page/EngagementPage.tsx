@@ -42,7 +42,13 @@ function EngagementPage() {
     <>
         <div>
           <EngagementBar />
-          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
+          <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          }}>
+            <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
+          </div>
           <Engagetable columns={columns} rows={rows} />
         </div>
     </>
