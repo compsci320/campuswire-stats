@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #003f7b;
+}
+
+.navbar-item {
+    color: white;
+    font-size: 18px;
+    margin: 0px 8px 12px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.divider {
+    margin: 15px 10px 15px;
+}

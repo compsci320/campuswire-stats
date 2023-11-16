@@ -4,13 +4,13 @@ import TrendOption from '../trend-option/trend-option';
 import MovingIcon from '@mui/icons-material/Moving';
 import mock_data from '../../mock/mock.json';
 
-const trendingTopics = [
-  { name: "Homework" },
-  { name: "Projects" },
-  { name: "Attendance" },
-]
+interface TrendbarProps {
+  trend: string;
+  setTrend: (newTrend: string) => void;
+  trendList: any[]
+}
 
-function Trendbar(props: { trend: string, setTrend: (newTrend: string) => void }) {
+function Trendbar(props: TrendbarProps) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -38,11 +38,11 @@ function Trendbar(props: { trend: string, setTrend: (newTrend: string) => void }
 
     fetchData();
 
-    props.setTrend(trendingTopics[0].name);
+    props.setTrend(props.trendList[0].name);
   }, []);
   console.log(data);
 
-  const options = trendingTopics.map(topic => (
+  const options = props.trendList.map(topic => (
     <TrendOption 
       name={topic.name} 
       trend={props.trend} 
