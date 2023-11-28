@@ -38,16 +38,20 @@ function Navbar(props: NavbarProps) {
 
   return (
     <div style={{ width: props.width }} className="navbar">
-      <AnalyticsIcon sx={{ fontSize: 60, marginLeft: 1, marginTop: 1, marginBottom: 3, color: 'white' }} />
+      <AnalyticsIcon sx={{ fontSize: 60, marginLeft: 1, marginTop: 1, marginBottom: 3, color: '#F0F0F0' }} />
       {
         pages.map(page => (
           <ListItem disablePadding={true}>
-            <div className="navbar-item" style={{ backgroundColor: location.pathname === page.path ? "#002f5b" : "#004e98" }}>
+            <div className="navbar-item" style={{ 
+                backgroundColor: location.pathname === page.path ? "#414196" : "rgb(0, 0, 0, 0)"
+              }}
+            >
                 <ListItemButton 
                     sx={{
-                      "&.Mui-focusVisible": { backgroundColor: "#002f5b", color: "white" },
-                      "&:hover": { backgroundColor: "#003262", color: "white" },
-                      borderRadius: 2 
+                      "&.Mui-focusVisible": { backgroundColor: "#414188", color: "#F0F0F0" },
+                      "&:hover": { backgroundColor: "#414188", color: "#F0F0F0" },
+                      borderRadius: 2,
+                      padding: 1.4 
                     }} 
                     onClick={() => navigateTo(page.path)}
                 >

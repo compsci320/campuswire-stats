@@ -10,12 +10,13 @@
 .trendbar-title {
     padding: 0px 10px 4px 20px;
 
-    color: white;
+    color: #F0F0F0;
     font-size: 30px;
 }
 
 .trendbar-options {
     display: flex;
+    flex: 1;
     flex-direction: row;
     align-items: center;
     

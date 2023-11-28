@@ -1,0 +1,16 @@
+.post-default, .post-critical {
+    display: flex;
+    border: solid;
+    border-radius: 20px;
+    border-width: 3px;
+    border-color: rgb(68, 68, 68);
+
+    height: 60px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+.post-critical {
+    background-color: rgb(255, 255, 70);
+    border-color: rgb(156, 156, 0);
+}

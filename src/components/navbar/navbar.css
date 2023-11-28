@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: #003f7b;
+    background-color: #24247d;
 }
 
 .navbar-item {
-    color: white;
+    color: #F0F0F0;
     font-size: 18px;
-    margin: 0px 8px 12px;
+    font-weight: 600;
+    margin: 0px 14px 10px;
     border-radius: 10px;
     flex: 1;
 }

@@ -13,7 +13,7 @@ const TrendButton = styled(Button)(`
   text-transform: none;
   padding: 0;
   border-radius: 20px;
-  margin-right: 75px;
+  margin-right: 30px;
 `);
 
 function TrendOption(props: TrendOptionProps) {
@@ -22,7 +22,7 @@ function TrendOption(props: TrendOptionProps) {
         <div className={ props.name === props.trend ? "trend-option-selected" : "trend-option-default" }>
           {props.name}
         </div>
-      </ TrendButton>  
+      </TrendButton>  
     );
   }
   

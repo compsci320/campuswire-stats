@@ -10,7 +10,7 @@ interface TrendingPageProps {
 function TrendingPost(props: TrendingPageProps) {
   return (
     <div className={ props.isCritical ? "post-critical" : "post-default"}>
-      <AccountCircleIcon />
+      <AccountCircleIcon /> {props.title}
     </div>
   );
 }

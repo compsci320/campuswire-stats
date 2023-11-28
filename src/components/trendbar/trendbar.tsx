@@ -53,7 +53,7 @@ function Trendbar(props: TrendbarProps) {
   return (
     <div className="trendbar">
       <div className="trendbar-title">Trending</div>
-      <MovingIcon sx={{ color: 'white', fontSize: 35 }}/>
+      <MovingIcon sx={{ color: '#F0F0F0', fontSize: 35 }}/>
       <div className="trendbar-options">{options}</div>
     </div>
   );

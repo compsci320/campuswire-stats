@@ -14,7 +14,7 @@ function TrendingPage() {
   const remoteSetTrend = (newTrend: string) => setTrend(newTrend)
 
   const renderPosts = () => {
-    return dummyData.find(elem => elem.name === trend)?.posts.map(post => <p>{ post.title }</p>) || 'Undefined';
+    return dummyData.find(elem => elem.name === trend)?.posts.map(post => <TrendingPost title={ post.title } isCritical={ false } />) || 'Undefined';
   }
 
   return (

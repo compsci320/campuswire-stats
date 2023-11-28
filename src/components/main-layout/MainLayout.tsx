@@ -11,7 +11,7 @@ function MainLayout() {
     const remoteSetPage = (newPage: string) => setPage(newPage);
 
     const ANCHOR = 'left';
-    const WIDTH = 225;
+    const WIDTH = 250;
 
     const toggleDrawer =
         (isOpen: boolean) =>
