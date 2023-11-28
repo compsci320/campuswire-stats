@@ -4,9 +4,9 @@ import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost'
 
 const dummyData = [
-  { name: "Homework", posts: [{ title: 'HW Post 1' }, { title: 'HW Post 2' }] },
-  { name: "Deadlines", posts: [] },
-  { name: "Attendance", posts: [] }
+  { category: "Homework", posts: [{ title: 'HW Post 1', body: "I have a question?", isCritical: true, views: 10, likes: 0 }, { title: 'HW Post 2', body: "This is a long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long post", isCritical: false, views: 30, likes: 2 }] },
+  { category: "Deadlines", posts: [] },
+  { category: "Attendance", posts: [] }
 ]
 
 function TrendingPage() {
@@ -14,7 +14,9 @@ function TrendingPage() {
   const remoteSetTrend = (newTrend: string) => setTrend(newTrend)
 
   const renderPosts = () => {
-    return dummyData.find(elem => elem.name === trend)?.posts.map(post => <TrendingPost title={ post.title } isCritical={ false } />) || 'Undefined';
+    return dummyData
+      .find(elem => elem.category === trend)?.posts
+      .map(post => <TrendingPost post={post} />) || 'Undefined';
   }
 
   return (

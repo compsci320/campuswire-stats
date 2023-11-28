@@ -12,7 +12,6 @@ interface TrendbarProps {
 
 function Trendbar(props: TrendbarProps) {
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,13 +37,13 @@ function Trendbar(props: TrendbarProps) {
 
     fetchData();
 
-    props.setTrend(props.trendList[0].name);
+    props.setTrend(props.trendList[0].category);
   }, []);
   console.log(data);
 
   const options = props.trendList.map(topic => (
     <TrendOption 
-      name={topic.name} 
+      name={topic.category} 
       trend={props.trend} 
       setTrend={props.setTrend}
     />
