@@ -8,7 +8,7 @@ function Trendbar() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://localhost:5001/', {
+    fetch('http://localhost:5001/get_words', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

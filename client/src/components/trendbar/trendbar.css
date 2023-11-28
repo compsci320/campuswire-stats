@@ -1,10 +1,9 @@
 .trendbar {
     display: flex;
     align-items: center;
-
     background-color: #0084FF;
     height: 75px;
-    flex: 1;
+    width: 100%;
 }
 
 .trendbar-title {
