@@ -7,7 +7,11 @@ import Navbar from '../navbar/navbar';
 
 function MainLayout() {
     const [state, setState] = React.useState({ open: false });
+    const [page, setPage] = React.useState('');
+    const remoteSetPage = (newPage: string) => setPage(newPage);
+
     const ANCHOR = 'left';
+    const WIDTH = 250;
 
     const toggleDrawer =
         (isOpen: boolean) =>
@@ -25,13 +29,17 @@ function MainLayout() {
                 anchor={ANCHOR}
                 open={state.open}
                 onClose={toggleDrawer(false)}
+                variant="permanent"
             >
-                <Navbar />
+                <Navbar 
+                    width={ WIDTH }
+                    page={ page }
+                    setPage={ remoteSetPage } 
+                />
             </Drawer>
-            <Outlet />
-            <IconButton style={{ position: 'absolute', left: 0, bottom: 0 }} onClick={toggleDrawer(true)} size="large">
-                <Menu fontSize="large" />
-            </IconButton>
+            <div style={{ paddingLeft: WIDTH }}>
+                <Outlet />
+            </div>
         </div>
     );
 }

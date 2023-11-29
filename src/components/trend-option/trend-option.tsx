@@ -13,23 +13,16 @@ const TrendButton = styled(Button)(`
   text-transform: none;
   padding: 0;
   border-radius: 20px;
-  margin-right: 75px;
+  margin-right: 30px;
 `);
 
 function TrendOption(props: TrendOptionProps) {
     return (
       <TrendButton onClick={() => props.setTrend(props.name)}>
-        {
-          props.name === props.trend ?
-            <div className="trend-option-selected">
-              {props.name}
-            </div>
-          :
-            <div className="trend-option-default">
-              {props.name}
-            </div>
-        }  
-      </ TrendButton>  
+        <div className={ props.name === props.trend ? "trend-option-selected" : "trend-option-default" }>
+          {props.name}
+        </div>
+      </TrendButton>  
     );
   }
   

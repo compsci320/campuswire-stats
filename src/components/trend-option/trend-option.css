@@ -11,13 +11,13 @@
 
     font-size: 18px;
     text-align: center;
-    color: white;
+    color: #F0F0F0;
 }
 
 .trend-option-default {
     border-style: solid;
     border-width: 3px;
-    border-color: white;
+    border-color: #F0F0F0;
     border-radius: 20px;
     min-width: 100px;
 
@@ -25,5 +25,5 @@
 
     font-size: 18px;
     text-align: center;
-    color: white;
+    color: #F0F0F0;
 }
