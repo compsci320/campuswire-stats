@@ -18,19 +18,21 @@ let nameArray: string[] = [];
 viewModel.nameMap.forEach((value, key) => nameArray.push(value[0] + " " + value[1]));
 
 let numPostsArray: string[] = [];
-viewModel.numPostsMap.forEach((value, key) => numPostsArray.push(value.toString()));
-
 let shareOfPostsArray: string[] = [];
-viewModel.numPostsMap.forEach((value, key) => shareOfPostsArray.push((value / totalPosts).toFixed(2)));
+viewModel.numPostsMap.forEach((value, key) => {
+  numPostsArray.push(value.toString())
+  shareOfPostsArray.push((value / totalPosts).toFixed(2))
+});
 
 let numCommentsArray: string[] = [];
-viewModel.numCommentsMap.forEach((value, key) => numCommentsArray.push(value.toString()));
-
 let shareOfCommentsArray: string[] = [];
-viewModel.numCommentsMap.forEach((value, key) => shareOfCommentsArray.push((value / totalComments).toFixed(2)));
+viewModel.numCommentsMap.forEach((value, key) => {
+  numCommentsArray.push(value.toString())
+  shareOfCommentsArray.push((value / totalComments).toFixed(2))
+});
 
 let lastSeenArray: string[] = [];
-viewModel.lastSeenMap.forEach((value, key) => lastSeenArray.push(value.toString()));
+viewModel.lastSeenMap.forEach((value, key) => lastSeenArray.push(value.toDateString()));
 
 
 // ADD MORE FIELDS TO TABLE AND GET THE DATA
