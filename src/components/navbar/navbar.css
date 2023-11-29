@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #24247d;
+}
+
+.navbar-item {
+    color: #F0F0F0;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0px 14px 10px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.divider {
+    margin: 15px 10px 15px;
+}
