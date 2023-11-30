@@ -52,13 +52,19 @@ function compare_columns(option: string, type: string)  {
     } else if (type === "number") {
       a = a === undefined ? 0 : a;
       b = b === undefined ? 0 : b;
-      return a < b ? -1 : 1;
+
+      return parseFloat(a) < parseFloat(b) ? -1 : 1;
     }
   }
 }           
 
 function EngagementPage() {
   const chartData = createEngagementChartData(post_data);
+  let [sortOption, setSortOption] = React.useState("numComments");
+
+  if (sortOption !== "") {
+    rows.sort(compare_columns(sortOption, "number"));
+  }
     
   return (
     <>
