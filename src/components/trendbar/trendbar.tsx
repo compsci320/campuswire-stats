@@ -50,10 +50,10 @@ function Trendbar(props: TrendbarProps) {
   ));
 
   return (
-    <div className="trendbar">
+    <div className="trendbar shadow border-b border-gray-300 mb-8">
       <div className="trendbar-title">Trending</div>
-      <MovingIcon sx={{ color: '#F0F0F0', fontSize: 35 }}/>
-      <div className="trendbar-options">{options}</div>
+      <MovingIcon sx={{ fontSize: 35 }} className="text-indigo-500"/>
+      {/* <div className="trendbar-options">{options}</div> */}
     </div>
   );
 }

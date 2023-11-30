@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: #24247d;
+    background-color: #080d17;
 }
 
 .navbar-item {
     color: #F0F0F0;
+    background-color: #080d17;
     font-size: 18px;
     font-weight: 600;
     margin: 0px 14px 10px;
