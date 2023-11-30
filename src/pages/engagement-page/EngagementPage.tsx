@@ -7,11 +7,6 @@ import { EngagementGraph } from "../../components/engagementGraph/engagementGrap
 import EngagementBar from '../../components/engagementbar/engagementbar';
 import { basename } from 'path/posix';
 
-// Stuff for sort buttons
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-
 
 
 let post_data: Post[] = require('../../mock/mock.json');
