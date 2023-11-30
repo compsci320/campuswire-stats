@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-export default function SortMenu(setSortOption: any, sortOptions: string[], currentOption: string) {
+export default function SortMenu({stateHandler, menuOptions, currentOption}: {stateHandler: any, menuOptions: any[][], currentOption: string}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -12,7 +12,7 @@ export default function SortMenu(setSortOption: any, sortOptions: string[], curr
     };
     const handleClose = (option: string) => {
         return () => {
-            setSortOption(option.toLowerCase());
+            stateHandler(option);
             setAnchorEl(null);
         }
     };
@@ -37,7 +37,7 @@ export default function SortMenu(setSortOption: any, sortOptions: string[], curr
             'aria-labelledby': 'basic-button',
           }}
         >
-          {sortOptions.map(option => <MenuItem onClick={handleClose(option)}>{option}</MenuItem>)}
+          {menuOptions.map(option => <MenuItem onClick={handleClose(option[1])}>{option[0]}</MenuItem>)}
         </Menu>
       </div>
     );
