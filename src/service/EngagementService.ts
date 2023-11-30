@@ -104,7 +104,7 @@ function getLastSeen(post_data: Post[]): Map<string, Date> {
 
     let assignDate = (id: string, newDate: Date) => {
         if (result.has(id)) {
-            if (newDate < result.get(id)) {
+            if (newDate > result.get(id)) {
                 result.set(id, newDate)
             }
         } else {

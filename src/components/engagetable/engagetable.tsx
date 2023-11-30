@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 
  
 export interface Column {
-  id: 'name' | 'numPosts' | 'lastSeen' | 'numComments' | 'shareOfComments' | 'shareOfPosts';
+  id: 'name' | 'numPosts' | 'lastSeen' | 'numComments';
   label: string;
   minWidth?: number;
   align?: 'right';
@@ -19,9 +19,7 @@ export interface Column {
 export interface Data {
   name: string;
   numPosts: string;
-  shareOfPosts: string;
   numComments: string;
-  shareOfComments: string;
   lastSeen: string;
 }
 
