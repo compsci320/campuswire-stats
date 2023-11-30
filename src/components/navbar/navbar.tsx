@@ -43,13 +43,13 @@ function Navbar(props: NavbarProps) {
         pages.map(page => (
           <ListItem disablePadding={true}>
             <div className="navbar-item" style={{ 
-                backgroundColor: location.pathname === page.path ? "#414196" : "rgb(0, 0, 0, 0)"
+                backgroundColor: location.pathname === page.path ? "#222c40" : "rgb(0, 0, 0, 0)"
               }}
             >
                 <ListItemButton 
                     sx={{
-                      "&.Mui-focusVisible": { backgroundColor: "#414188", color: "#F0F0F0" },
-                      "&:hover": { backgroundColor: "#414188", color: "#F0F0F0" },
+                      "&.Mui-focusVisible": { backgroundColor: "#222c40", color: "#F0F0F0" },
+                      "&:hover": { backgroundColor: "#222c40", color: "#F0F0F0" },
                       borderRadius: 2,
                       padding: 1.4 
                     }} 
