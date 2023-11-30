@@ -8,7 +8,7 @@ function Trendbar() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://localhost:5001/get_words', {
+    fetch('http://localhost:5001/get_data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -30,15 +30,16 @@ function Trendbar() {
         <p>Loading...</p>
       </div>
     );
+  } else {
+    let wordList = Object.keys(data);
+    const options = wordList.map((elem, idx) => <TrendOption key={idx} name={elem} />);
+    return (
+      <div className="trendbar">
+        <div className="trendbar-title">Trending </div>
+        <div className="trendbar-options">{options}</div>
+      </div>
+    );
   }
-  let wordList = data["words"] as string[];
-  const options = wordList.map((elem, idx) => <TrendOption key={idx} name={elem} />);
-  return (
-    <div className="trendbar">
-      <div className="trendbar-title">Trending </div>
-      <div className="trendbar-options">{options}</div>
-    </div>
-  );
 }
 
 export default Trendbar;

@@ -31,20 +31,25 @@ function TrendGraph() {
             </div>
         );
     }
-    return (
-        <div className="trend-graph" >
-            <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                    {
-                        data: [2, 5.5, 2, 8.5, 1.5, 5],
-                    },
-                ]}
-                width={500}
-                height={300}
-            />
-        </div>
-    );
+    else {
+        let wordList = Object.keys(data);
+        let wordValues = Object.values(data);
+        let wordGraph = wordList.map(elem => wordValues.length);
+        return (
+            <div className="trend-graph" >
+                <LineChart
+                    xAxis={[{ data: wordList }]}
+                    series={[
+                        {
+                            data: wordGraph,
+                        },
+                    ]}
+                    width={1000}
+                    height={600}
+                />
+            </div>
+        );
+    }
 }
 
 export default TrendGraph;
