@@ -39,6 +39,24 @@ function createData(name: string, numPosts: string, numComments: string, lastSee
 const rows = nameArray.map((name, index) => createData(name, numPostsArray[index], numCommentsArray[index], lastSeenArray[index]));
 
 
+function compare_columns(option: string, type: string)  {
+  // Type is either "string" or "number"
+  return (a: any, b: any) => {
+    a = a[option];
+    b = b[option];
+    console.log("A:", a);
+    console.log("B:", b);
+    
+    if (type === "string") {
+      return a.localeCompare(b);
+    } else if (type === "number") {
+      a = a === undefined ? 0 : a;
+      b = b === undefined ? 0 : b;
+      return a < b ? -1 : 1;
+    }
+  }
+}           
+
 function EngagementPage() {
   const chartData = createEngagementChartData(post_data);
     
