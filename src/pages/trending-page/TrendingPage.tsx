@@ -1,28 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
-import TrendingPost from '../../components/trending-post/TrendingPost'
-
-const dummyData = [
-  { category: "Homework", posts: [{ title: 'HW Post 1', body: "I have a question?", isCritical: true, views: 10, likes: 0 }, { title: 'HW Post 2', body: "This is a long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long post", isCritical: false, views: 30, likes: 2 }] },
-  { category: "Deadlines", posts: [] },
-  { category: "Attendance", posts: [] }
-]
+import TrendingPost from '../../components/trending-post/TrendingPost';
+import mock_data from '../../mock/mock.json';
 
 function TrendingPage() {
+  const [data, setData] = useState(null);
   const [trend, setTrend] = useState('');
   const remoteSetTrend = (newTrend: string) => setTrend(newTrend)
 
+  useEffect(() => {
+    console.log('Fetching data...');
+    fetch('http://localhost:5001/get_data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mock_data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Data received:', data);
+        setData(data);
+      })
+      .catch(err => console.error('Error:', err));
+
+  }, []);
+
   const renderPosts = () => {
-    return dummyData
-      .find(elem => elem.category === trend)?.posts
-      .map(post => <TrendingPost post={post} />) || 'Undefined';
-  }
+    if (data === null)
+      return [];
+
+    let category = Object.keys(data)[0];
+
+    return (data[category] as Array<any>).map((item: any) => (
+      <TrendingPost post={{
+        title: item['title'] as string,
+        body: item['body'] as string,
+        uniqueViewsCount: item['uniqueViewsCount'] as number,
+        likesCount: item['likesCount'] as number,
+        isCritical: false
+      }} />
+    )
+    );
+  };
+
+  const renderOptions = () => {
+    if (data === null) return [];
+
+    let categories = Object.keys(data);
+
+    return (categories as Array<string>).map((item: string) => ({
+      name: item, trend: item, setTrend: remoteSetTrend
+    }));
+
+  };
+
 
   return (
     <>
-        <Trendbar trend={ trend } setTrend={ remoteSetTrend } trendList={ dummyData }/>
-        { renderPosts() }
+      {data ? (
+        <>
+          <Trendbar trendOptions={renderOptions()} />
+          {renderPosts()}
+        </>
+      ) : (
+        <div className="trendbar-loading">
+          <div className="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      )}
     </>
   );
 }
