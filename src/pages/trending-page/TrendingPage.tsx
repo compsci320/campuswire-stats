@@ -22,6 +22,7 @@ function TrendingPage() {
       .then(data => {
         console.log('Data received:', data);
         setData(data);
+        setTrend(Object.keys(data)[0]);
       })
       .catch(err => console.error('Error:', err));
 
@@ -31,9 +32,10 @@ function TrendingPage() {
     if (data === null)
       return [];
 
-    let category = Object.keys(data)[0];
+    if (trend === null)
+      return []
 
-    return (data[category] as Array<any>).map((item: any) => (
+    return (data[trend] as Array<any>).map((item: any) => (
       <TrendingPost post={{
         title: item['title'] as string,
         body: item['body'] as string,
@@ -59,7 +61,7 @@ function TrendingPage() {
 
   return (
     <>
-      {data ? (
+      {data && trend ? (
         <>
           <Trendbar trendOptions={renderOptions()} />
           {renderPosts()}
