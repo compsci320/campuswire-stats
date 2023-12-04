@@ -7,6 +7,8 @@ import Paper from '@mui/material/Paper';
 import { RecentPostsCard } from '../../components/recentPostsCard/recentPostsCard';
 import { PieCard } from '../../components/pieCard/pieCard';
 import { Typography } from '@mui/material';
+import { RecentResolvedPostsCard } from '../../components/recentResolvedPostsCard/recentResolvedPostsCard';
+import { RecentCommentsCard } from '../../components/recentCommentsCard/recentCommentsMade';
 
 let post_data: Post[] = require('../../mock/mock.json');
 const viewModel = createViewModel(post_data);
@@ -25,21 +27,35 @@ function TrafficPage() {
           <Typography variant="h4" color='text.primary' textAlign='left'>Welcome!</Typography>
         </div>
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div style={{ display: 'flex', gap: '16px' }}>
+          <div style={{ display: 'flex', gap: '16px', flexDirection: 'row', flexWrap: 'wrap', width:'600px'}}>
             <UnansweredPostsCard 
               difference={12}
               positive={true}
               sx={cardStyles}
               value={viewModel.unansweredPostsCount}
             />
-            <RecentPostsCard 
+            <RecentCommentsCard
               difference={12}
               positive={true}
               sx={cardStyles}
-              value="24"
+              value={viewModel.recentCommentsCount}
+              />
+            <RecentPostsCard 
+          difference={12}
+          positive={true}
+          sx={cardStyles}
+          value={viewModel.recentPostsCount}
+        />
+            <RecentResolvedPostsCard 
+              difference={12}
+              positive={true}
+              sx={cardStyles}
+              value={viewModel.recentResolvedPostsCount}
             />
-            <PieCard sx={pieColorStyles} />
           </div>
+
+        
+          <PieCard sx={pieColorStyles} />
         </div>
       </Paper>
     </div>

@@ -3,7 +3,7 @@ import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import { Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
-export const RecentPostsCard = (props: { difference: any; positive: boolean | undefined; sx: any; value: any; }) => {
+export const RecentResolvedPostsCard = (props: { difference: any; positive: boolean | undefined; sx: any; value: any; }) => {
   const { difference, positive = false, sx, value } = props;
 
   return (
@@ -20,7 +20,7 @@ export const RecentPostsCard = (props: { difference: any; positive: boolean | un
               color="text.secondary"
               variant="overline"
             >
-              Posts made in the Past Day
+              Posts Resolved in the Past Day
             </Typography>
             <Typography variant="h4">
               {value}
@@ -56,7 +56,7 @@ export const RecentPostsCard = (props: { difference: any; positive: boolean | un
               color="text.secondary"
               variant="caption"
             >
-              Since last month
+              Since last week
             </Typography>
           </Stack>
         )}
@@ -65,7 +65,7 @@ export const RecentPostsCard = (props: { difference: any; positive: boolean | un
   );
 };
 
-RecentPostsCard.prototypes = {
+RecentResolvedPostsCard.prototypes = {
   difference: PropTypes.number,
   positive: PropTypes.bool,
   sx: PropTypes.object,
