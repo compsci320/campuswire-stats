@@ -16,7 +16,7 @@ interface TrendingPageProps {
 
 function TrendingPost(props: TrendingPageProps) {
   return (
-    <div className={ !props.post.isCritical ? "post-default" : "post-critical" }>
+    <div className={ !props.post.isCritical ? "post-default" : "post-critical bg-indigo-500 text-white" }>
       <div className="post-header">
         {props.post.title}
         { !props.post.isCritical ? <></> : <PriorityHighIcon sx={{ paddingBottom: 0, paddingLeft: 0 }} /> }
