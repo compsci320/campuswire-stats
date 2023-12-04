@@ -11,13 +11,13 @@ let series_template = [
       type: 'bar',
       stack: '',
       yAxisKey: 'users',
-      color: "#98C8F3",
+      color: "#6466e9",
       data: [2, 5, 3, 4, 1],
     },
     {
       type: 'line',
       yAxisKey: 'users',
-      color: 'red',
+      color: 'black',
       data: [1, 2, 3, 4, 5],
     },
   ] as AllSeriesType[];
