@@ -19,11 +19,15 @@
     margin-left: 50px;
 }
 
+.centered {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .trendbar-loading {
     position: absolute;
-    margin: 0px;
-    height: 100%;
-    width: 100%;
     text-align: center;
     align-items: center;
 }

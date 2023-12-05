@@ -3,6 +3,7 @@ import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
 import mock_data from '../../mock/mock.json';
+import { TrendGraph } from '../../components/trend_graph/trend_graph';
 
 function TrendingPage() {
   const [data, setData] = useState(null);
@@ -41,11 +42,30 @@ function TrendingPage() {
         body: item['body'] as string,
         uniqueViewsCount: item['uniqueViewsCount'] as number,
         likesCount: item['likesCount'] as number,
-        isCritical: false
+        isCritical: (item['answersCount'] === 0) as boolean
       }} />
     )
     );
   };
+
+  const renderGraphData = () => {
+    if (data === null)
+      return [];
+
+    if (trend === null)
+      return []
+
+    return (data[trend] as Array<any>).map((item: any) => (
+      {
+        title: item['title'] as string,
+        uniqueViewsCount: item['uniqueViewsCount'] as number,
+        likesCount: item['likesCount'] as number,
+        isCritical: (item['answersCount'] === 0) as boolean,
+        publishedAt: new Date(item["publishedAt"]),
+        numComments: item['comments'].length as number
+      })
+    );
+  }
 
   const renderOptions = () => {
     if (data === null) return [];
@@ -64,12 +84,15 @@ function TrendingPage() {
       {data && trend ? (
         <>
           <Trendbar trendOptions={renderOptions()} />
+          <TrendGraph data={renderGraphData()} />
           {renderPosts()}
         </>
       ) : (
-        <div className="trendbar-loading">
-          <div className="spinner"></div>
-          <p>Loading...</p>
+        <div className="centered">
+          <div className="trendbar-loading">
+            <div className="spinner"></div>
+            <p>Loading...</p>
+          </div>
         </div>
       )}
     </>
