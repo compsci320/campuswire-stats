@@ -1,23 +1,54 @@
 .trendbar {
     display: flex;
     align-items: center;
-
-    background-color: #0084FF;
     height: 75px;
     flex: 1;
 }
 
 .trendbar-title {
     padding: 0px 10px 4px 20px;
-
-    color: white;
     font-size: 30px;
 }
 
 .trendbar-options {
     display: flex;
+    flex: 1;
     flex-direction: row;
     align-items: center;
-    
+
     margin-left: 50px;
+}
+
+.trendbar-loading {
+    position: absolute;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.trendbar-loading p {
+    font-size: 16px;
+    color: #080d17;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.trendbar-loading .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #080d17;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
 }

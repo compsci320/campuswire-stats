@@ -1,0 +1,44 @@
+.post-default, .post-critical {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: rgb(181, 181, 181);
+
+    padding: 12px;
+    
+    margin: 10px 20px;
+}
+
+/* .post-critical {
+    background-color: rgb(255, 52, 52);
+    border-color: rgb(94, 0, 0);
+    color: #F0F0F0 !important;      
+} */
+
+.post-header {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 12px;
+
+    font-size: large;
+    font-weight: 600;
+
+    height: 25px;
+}
+
+.post-body {
+    flex: 1;
+    padding: 0px 12px;
+    font-size: medium;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    
+    font-size: small;
+    padding: 8px 12px;
+}
