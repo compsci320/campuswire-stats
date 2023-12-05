@@ -20,12 +20,10 @@
 }
 
 .trendbar-loading {
-    position: absolute;
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .trendbar-loading p {

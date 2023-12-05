@@ -3,6 +3,7 @@ import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
 import { getTrendsData } from '../../service/TrendService';
+import { Box, Tab, Tabs } from '@mui/material';
 
 function TrendingPage() {
   const [data, setData] = useState(null);
@@ -48,10 +49,14 @@ function TrendingPage() {
 
     let categories = Object.keys(data);
 
-    return (categories as Array<string>).map((item: string) => ({
-      name: item, trend: item, setTrend: remoteSetTrend
-    }));
+    // return (categories as Array<string>).map((item: string) => ({
+    //   name: item, trend: item, setTrend: remoteSetTrend
+    // }));
 
+    return (categories as Array<string>).map((item: string) => {
+      if (item !== 'Other')
+        return <Tab value={item} label={item} key={item}></Tab>;
+    });
   };
 
 
@@ -59,7 +64,13 @@ function TrendingPage() {
     <>
       {data && trend ? (
         <>
-          <Trendbar trendOptions={renderOptions()} />
+          <Trendbar />
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={trend} onChange={(e, value) => remoteSetTrend(value)} aria-label="basic tabs example">
+              {renderOptions()}
+              <Tab value={'Other'} label={'Other'} key={'Other'}></Tab>
+            </Tabs>
+          </Box>
           {renderPosts()}
         </>
       ) : (
