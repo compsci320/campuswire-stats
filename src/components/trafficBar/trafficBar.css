@@ -1,0 +1,17 @@
+.trafficbar {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    flex: 1;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+    background-color: #fbfbf9;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+}
+
+.trafficbar-title {
+    padding: 0px 10px 4px 20px;
+    font-size: 35px;
+}

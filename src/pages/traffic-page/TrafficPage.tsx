@@ -9,6 +9,7 @@ import { PieCard } from '../../components/pieCard/pieCard';
 import { Typography } from '@mui/material';
 import { RecentResolvedPostsCard } from '../../components/recentResolvedPostsCard/recentResolvedPostsCard';
 import { RecentCommentsCard } from '../../components/recentCommentsCard/recentCommentsMade';
+import { TrafficBar } from '../../components/trafficBar/trafficBar';
 
 let post_data: Post[] = require('../../mock/mock.json');
 const viewModel = createViewModel(post_data);
@@ -19,12 +20,13 @@ const pieColorStyles = { height: '350px', width: '350px', backgroundColor: '#fbf
 function TrafficPage() {
   return (
     <div style={{ backgroundColor: '#f8f2ed', minHeight: '100vh', padding: '16px' }}>
+
       <Paper elevation={3} sx={{ padding: 2, margin: 2, display: 'flex', flexDirection: 'column', backgroundColor: '#fbfcf8' }}>
         <div id="bigheading" style={{ marginBottom: '8px' }}>
-          <Typography variant="h2" color='text.primary' textAlign='center'>Current Traffic</Typography>
+        <TrafficBar />
+
         </div>
         <div id="welcome" style={{ marginBottom: '8px' }}>
-          <Typography variant="h4" color='text.primary' textAlign='left'>Welcome!</Typography>
         </div>
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div style={{ display: 'flex', gap: '16px', flexDirection: 'row', flexWrap: 'wrap', width:'600px'}}>
