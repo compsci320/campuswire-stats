@@ -5,6 +5,7 @@ import {Post} from "../../models/Post";
 import { Engagetable, Column, Data } from '../../components/engagetable/engagetable';
 import { EngagementGraph } from "../../components/engagementGraph/engagementGraph"
 import EngagementBar from '../../components/engagementbar/engagementbar';
+import SortMenu from '../../components/engagetable/sortbutton';
 import { basename } from 'path/posix';
 
 
@@ -81,23 +82,30 @@ function EngagementPage() {
     
   return (
     <>
-        <div>
-          <EngagementBar />
-          <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-          }}>
-            <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
-          </div>
-          {/* Sort button stuff */}
-          <button onClick={() => setSortOption("name")}>Sort by Name</button>
-          <button onClick={() => setSortOption("numPosts")}>Sort by Number of Posts</button>
-          <button onClick={() => setSortAscending(!sortAscending)}>{sortAscending ? "Descend" : "Ascend"}</button>
-          
-          {/* Table stuff */}
-          <Engagetable columns={columns} rows={rows} />
+        <EngagementBar />
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}>
+          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
         </div>
+        
+        {/* Sort button with sort types */}
+        <SortMenu 
+          stateHandler={setSortOption} 
+          menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
+          currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
+        />
+        
+        {/* Menu for choosing ascending or descending */}
+        <SortMenu 
+          stateHandler={setSortAscending} 
+          menuOptions={[["Ascending", true], ["Descending", false]]} 
+          currentOption={sortAscending ? "Ascending" : "Descending"}
+        />
+        
+        <Engagetable columns={columns} rows={rows} />
     </>
   );
   }

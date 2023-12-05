@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
-import mock_data from '../../mock/mock.json';
-import { TrendGraph } from '../../components/trend_graph/trend_graph';
+import { getTrendsData } from '../../service/TrendService';
+import { Box, Tab, Tabs } from '@mui/material';
 
 function TrendingPage() {
   const [data, setData] = useState(null);
@@ -12,14 +12,7 @@ function TrendingPage() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://localhost:5001/get_data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(mock_data)
-    })
-      .then(res => res.json())
+    getTrendsData()
       .then(data => {
         console.log('Data received:', data);
         setData(data);
@@ -37,13 +30,16 @@ function TrendingPage() {
       return []
 
     return (data[trend] as Array<any>).map((item: any) => (
-      <TrendingPost post={{
-        title: item['title'] as string,
-        body: item['body'] as string,
-        uniqueViewsCount: item['uniqueViewsCount'] as number,
-        likesCount: item['likesCount'] as number,
-        isCritical: (item['answersCount'] === 0) as boolean
-      }} />
+      <TrendingPost 
+        key={item['id']}
+        post={{
+          title: item['title'] as string,
+          body: item['body'] as string,
+          uniqueViewsCount: item['uniqueViewsCount'] as number,
+          likesCount: item['likesCount'] as number,
+          isCritical: false
+        }} 
+      />
     )
     );
   };
@@ -72,10 +68,14 @@ function TrendingPage() {
 
     let categories = Object.keys(data);
 
-    return (categories as Array<string>).map((item: string) => ({
-      name: item, trend: item, setTrend: remoteSetTrend
-    }));
+    // return (categories as Array<string>).map((item: string) => ({
+    //   name: item, trend: item, setTrend: remoteSetTrend
+    // }));
 
+    return (categories as Array<string>).map((item: string) => {
+      if (item !== 'Other')
+        return <Tab value={item} label={item} key={item}></Tab>;
+    });
   };
 
 
@@ -83,7 +83,13 @@ function TrendingPage() {
     <>
       {data && trend ? (
         <>
-          <Trendbar trendOptions={renderOptions()} />
+          <Trendbar />
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={trend} onChange={(e, value) => remoteSetTrend(value)} aria-label="basic tabs example">
+              {renderOptions()}
+              <Tab value={'Other'} label={'Other'} key={'Other'}></Tab>
+            </Tabs>
+          </Box>
           <TrendGraph data={renderGraphData()} />
           {renderPosts()}
 

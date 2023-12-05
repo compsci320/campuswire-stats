@@ -41,7 +41,7 @@ function Navbar(props: NavbarProps) {
       <AnalyticsIcon sx={{ fontSize: 60, marginLeft: 1, marginTop: 1, marginBottom: 3, color: '#F0F0F0' }} />
       {
         pages.map(page => (
-          <ListItem disablePadding={true}>
+          <ListItem disablePadding={true} key={page.title}>
             <div className="navbar-item" style={{ 
                 backgroundColor: location.pathname === page.path ? "#222c40" : "rgb(0, 0, 0, 0)"
               }}
