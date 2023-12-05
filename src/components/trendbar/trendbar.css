@@ -19,6 +19,13 @@
     margin-left: 50px;
 }
 
+.centered {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .trendbar-loading {
     display: flex;
     flex-direction: column;

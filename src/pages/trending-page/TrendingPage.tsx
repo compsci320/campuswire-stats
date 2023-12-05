@@ -44,6 +44,25 @@ function TrendingPage() {
     );
   };
 
+  const renderGraphData = () => {
+    if (data === null)
+      return [];
+
+    if (trend === null)
+      return []
+
+    return (data[trend] as Array<any>).map((item: any) => (
+      {
+        title: item['title'] as string,
+        uniqueViewsCount: item['uniqueViewsCount'] as number,
+        likesCount: item['likesCount'] as number,
+        isCritical: (item['answersCount'] === 0) as boolean,
+        publishedAt: new Date(item["publishedAt"]),
+        numComments: item['comments'].length as number
+      })
+    );
+  }
+
   const renderOptions = () => {
     if (data === null) return [];
 
@@ -71,12 +90,16 @@ function TrendingPage() {
               <Tab value={'Other'} label={'Other'} key={'Other'}></Tab>
             </Tabs>
           </Box>
+          <TrendGraph data={renderGraphData()} />
           {renderPosts()}
+
         </>
       ) : (
-        <div className="trendbar-loading">
-          <div className="spinner"></div>
-          <p>Loading...</p>
+        <div className="centered">
+          <div className="trendbar-loading">
+            <div className="spinner"></div>
+            <p>Loading...</p>
+          </div>
         </div>
       )}
     </>
