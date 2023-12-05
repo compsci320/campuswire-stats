@@ -11,10 +11,10 @@ function Trendbar(props: TrendbarOptions) {
     <div className="trendbar">
       <div className="trendbar-title">Trending </div>
       {props.trendOptions.map((item: any) => (
-        <div className="trendbar-options" key={item.id}>
+        <div key={Math.random()} className="trendbar-options">
           <TrendOption name={item.name} trend={item.trend} setTrend={item.setTrend} />
         </div>
-      ))}
+      ))} 
     </div>
   );
 }

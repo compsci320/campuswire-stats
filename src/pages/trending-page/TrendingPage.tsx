@@ -29,13 +29,16 @@ function TrendingPage() {
       return []
 
     return (data[trend] as Array<any>).map((item: any) => (
-      <TrendingPost post={{
-        title: item['title'] as string,
-        body: item['body'] as string,
-        uniqueViewsCount: item['uniqueViewsCount'] as number,
-        likesCount: item['likesCount'] as number,
-        isCritical: false
-      }} />
+      <TrendingPost 
+        key={item['id']}
+        post={{
+          title: item['title'] as string,
+          body: item['body'] as string,
+          uniqueViewsCount: item['uniqueViewsCount'] as number,
+          likesCount: item['likesCount'] as number,
+          isCritical: false
+        }} 
+      />
     )
     );
   };

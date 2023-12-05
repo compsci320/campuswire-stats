@@ -2,16 +2,18 @@ import nltk
 import json
 from nltk.corpus import stopwords
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-CORS(app, origins='http://localhost:5000')
+CORS(app)
 
 @app.route("/")
+@cross_origin(origin='*')
 def status():
     return jsonify({ 'status': 'running' }), 200
 
 @app.route('/data', methods=['GET'])
+@cross_origin(origin='*')
 def get_data():
     f = open('mock.json')
 
