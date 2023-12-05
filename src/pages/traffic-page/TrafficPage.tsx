@@ -29,26 +29,25 @@ function TrafficPage() {
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div style={{ display: 'flex', gap: '16px', flexDirection: 'row', flexWrap: 'wrap', width:'600px'}}>
             <UnansweredPostsCard 
-              difference={12}
-              positive={true}
+              hours={viewModel.hoursSinceLastPost}
               sx={cardStyles}
               value={viewModel.unansweredPostsCount}
             />
             <RecentCommentsCard
-              difference={12}
-              positive={true}
+              difference={viewModel.commentsChange}
+              positive={viewModel.commentsChange > 0}
               sx={cardStyles}
               value={viewModel.recentCommentsCount}
               />
             <RecentPostsCard 
-          difference={12}
-          positive={true}
+          difference={viewModel.postsChange}
+          positive={viewModel.postsChange > 0}
           sx={cardStyles}
           value={viewModel.recentPostsCount}
         />
             <RecentResolvedPostsCard 
-              difference={12}
-              positive={true}
+              difference={viewModel.resolvedPostsChange}
+              positive={viewModel.resolvedPostsChange > 0}
               sx={cardStyles}
               value={viewModel.recentResolvedPostsCount}
             />

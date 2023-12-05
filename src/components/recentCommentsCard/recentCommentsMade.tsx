@@ -56,7 +56,7 @@ export const RecentCommentsCard = (props: { difference: any; positive: boolean |
               color="text.secondary"
               variant="caption"
             >
-              Since last week
+              Since yesterday
             </Typography>
           </Stack>
         )}

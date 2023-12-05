@@ -3,8 +3,8 @@ import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import { Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
-export const UnansweredPostsCard = (props: { difference: any; positive: boolean | undefined; sx: any; value: any; }) => {
-  const { difference, positive = false, sx, value } = props;
+export const UnansweredPostsCard = (props: { hours: any; sx: any; value: any; }) => {
+  const { hours, sx, value } = props;
 
   return (
     <Card sx={sx}>
@@ -27,39 +27,25 @@ export const UnansweredPostsCard = (props: { difference: any; positive: boolean 
             </Typography>
           </Stack>
         </Stack>
-        {difference && (
           <Stack
-            alignItems="center"
+            alignItems="flex-start"
             direction="row"
-            spacing={2}
+            spacing={0.5}
             sx={{ mt: 2 }}
           >
             <Stack
-              alignItems="center"
+              alignItems="flex-start"
               direction="row"
               spacing={0.5}
             >
-              <SvgIcon
-                color={positive ? 'success' : 'error'}
-                fontSize="small"
-              >
-                {positive ? <ArrowUpIcon /> : <ArrowDownIcon />}
-              </SvgIcon>
-              <Typography
-                color={positive ? 'success.main' : 'error.main'}
-                variant="body2"
-              >
-                {difference}%
-              </Typography>
             </Stack>
             <Typography
               color="text.secondary"
               variant="caption"
             >
-              Since last month
+              Most recent posted {hours} hours ago
             </Typography>
           </Stack>
-        )}
       </CardContent>
     </Card>
   );

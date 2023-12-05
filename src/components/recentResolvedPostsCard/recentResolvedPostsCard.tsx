@@ -56,7 +56,7 @@ export const RecentResolvedPostsCard = (props: { difference: any; positive: bool
               color="text.secondary"
               variant="caption"
             >
-              Since last week
+              Since yesterday
             </Typography>
           </Stack>
         )}
