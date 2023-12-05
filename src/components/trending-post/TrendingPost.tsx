@@ -33,7 +33,7 @@ function TrendingPost(props: TrendingPageProps) {
       </div>
       <div className="post-footer">
         <ThumbUpAltIcon sx={{ paddingRight: 0.8 }} /> {props.post.likesCount} Likes
-        <VisibilityIcon sx={{ paddingLeft: 3, paddingRight: 0.8, color: 'red' }} /> {props.post.uniqueViewsCount} Views
+        <VisibilityIcon sx={{ paddingLeft: 3, paddingRight: 0.8 }} /> {props.post.uniqueViewsCount} Views
       </div>
     </div>
   );
