@@ -53,11 +53,13 @@ export interface TrendGraphData {
 }
 
 export function TrendGraph(trendData: TrendGraphData) {
+    console.log(trendData);
     const [type, setType] = useState('');
     const remoteSetType = (newType: string) => setType(newType) as void;
     trendData.data.sort(function (a, b) {
-        return b.publishedAt.getSeconds() - a.publishedAt.getSeconds();
+        return (b.publishedAt.getTime() - a.publishedAt.getTime()) * -1;
     });
+    console.log(trendData);
     let graphData: { [key: string]: TrendGraphEntry[] } = {};
     trendData.data.forEach((entry) => {
         let key = entry.publishedAt.toDateString() as string;
@@ -72,6 +74,13 @@ export function TrendGraph(trendData: TrendGraphData) {
         setType(graphType[0].type);
     }, []);
     let dataList = Object.keys(graphData).map((key) => graphData[key].length) as number[];
+    if (type === "Posts") {
+        dataList = Object.keys(graphData).map((key) => graphData[key].length) as number[];
+    } else if (type === "Likes") {
+        dataList = Object.keys(graphData).map((key) => graphData[key].reduce((prev, curr) => prev + curr.likesCount, 0)) as number[];
+    } else if (type === "Comments") {
+        dataList = Object.keys(graphData).map((key) => graphData[key].reduce((prev, curr) => prev + curr.numComments, 0)) as number[];
+    }
     let x_title = "Dates";
 
     const seriesData = createSeriesData(dataList);

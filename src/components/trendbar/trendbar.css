@@ -27,10 +27,9 @@
 }
 
 .trendbar-loading {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    text-align: center;
     align-items: center;
-    justify-content: center;
 }
 
 .trendbar-loading p {

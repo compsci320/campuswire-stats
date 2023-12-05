@@ -6,16 +6,15 @@ export interface TrendbarOptions {
   trendOptions: Array<any>;
 }
 
-function Trendbar() {
+function Trendbar(props: TrendbarOptions) {
   return (
     <div className="trendbar">
       <div className="trendbar-title">Trending </div>
-      <MovingIcon />
-      {/* {props.trendOptions.map((item: any) => (
-        <div key={Math.random()} className="trendbar-options">
+      {props.trendOptions.map((item: any) => (
+        <div className="trendbar-options" key={item.id}>
           <TrendOption name={item.name} trend={item.trend} setTrend={item.setTrend} />
         </div>
-      ))}  */}
+      ))}
     </div>
   );
 }

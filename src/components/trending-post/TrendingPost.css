@@ -1,4 +1,5 @@
-.post-default, .post-critical {
+.post-default,
+.post-critical {
     display: flex;
     flex-direction: column;
     border: solid;
@@ -7,15 +8,15 @@
     border-color: rgb(181, 181, 181);
 
     padding: 12px;
-    
+
     margin: 10px 20px;
 }
 
-/* .post-critical {
+.post-critical {
     background-color: rgb(255, 52, 52);
     border-color: rgb(94, 0, 0);
-    color: #F0F0F0 !important;      
-} */
+    color: #F0F0F0 !important;
+}
 
 .post-header {
     display: flex;
@@ -38,7 +39,7 @@
 .post-footer {
     display: flex;
     align-items: center;
-    
+
     font-size: small;
     padding: 8px 12px;
 }
