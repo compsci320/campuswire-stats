@@ -86,6 +86,7 @@ function TrendingPage() {
           <Trendbar trendOptions={renderOptions()} />
           <TrendGraph data={renderGraphData()} />
           {renderPosts()}
+
         </>
       ) : (
         <div className="centered">
