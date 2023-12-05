@@ -96,13 +96,15 @@ function EngagementPage() {
           <SortMenu 
             stateHandler={setSortOption} 
             menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
-            currentOption={sortOption.length > 0 ? sortOption : "Sort By"}/>
+            currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
+          />
           
           {/* Menu for choosing ascending or descending */}
           <SortMenu 
             stateHandler={setSortAscending} 
             menuOptions={[["Ascending", true], ["Descending", false]]} 
-            currentOption={sortAscending ? "Ascending" : "Descending"}/>
+            currentOption={sortAscending ? "Ascending" : "Descending"}
+          />
           
           <Engagetable columns={columns} rows={rows} />
         </div>
