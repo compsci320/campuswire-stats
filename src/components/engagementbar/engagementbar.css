@@ -3,6 +3,12 @@
     align-items: center;
     height: 75px;
     flex: 1;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+    background-color: #ffffff;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
 }
 
 .engagementbar-title {

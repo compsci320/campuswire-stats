@@ -82,32 +82,30 @@ function EngagementPage() {
     
   return (
     <>
-        <div>
-          <EngagementBar />
-          <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-          }}>
-            <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
-          </div>
-          
-          {/* Sort button with sort types */}
-          <SortMenu 
-            stateHandler={setSortOption} 
-            menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
-            currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
-          />
-          
-          {/* Menu for choosing ascending or descending */}
-          <SortMenu 
-            stateHandler={setSortAscending} 
-            menuOptions={[["Ascending", true], ["Descending", false]]} 
-            currentOption={sortAscending ? "Ascending" : "Descending"}
-          />
-          
-          <Engagetable columns={columns} rows={rows} />
+        <EngagementBar />
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}>
+          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
         </div>
+        
+        {/* Sort button with sort types */}
+        <SortMenu 
+          stateHandler={setSortOption} 
+          menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
+          currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
+        />
+        
+        {/* Menu for choosing ascending or descending */}
+        <SortMenu 
+          stateHandler={setSortAscending} 
+          menuOptions={[["Ascending", true], ["Descending", false]]} 
+          currentOption={sortAscending ? "Ascending" : "Descending"}
+        />
+        
+        <Engagetable columns={columns} rows={rows} />
     </>
   );
   }
