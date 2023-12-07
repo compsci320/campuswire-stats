@@ -21,6 +21,6 @@ pip install -r requirements.txt
 # Running the API
 
 ```sh
-flask run
+flask run -p 5001
 ```
 
