@@ -4,6 +4,7 @@ import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
 import { TrendGraph } from '../../components/trend_graph/trend_graph';
 import { getTrendsData } from '../../service/TrendService';
+import { Box, Tab, Tabs } from '@mui/material';
 
 function TrendingPage() {
   const [data, setData] = useState(null);
@@ -23,11 +24,8 @@ function TrendingPage() {
   }, []);
 
   const renderPosts = () => {
-    if (data === null)
+    if (data === null || trend === null)
       return [];
-
-    if (trend === null)
-      return []
 
     return (data[trend] as Array<any>).map((item: any) => (
       <TrendingPost post={{
@@ -66,10 +64,9 @@ function TrendingPage() {
 
     let categories = Object.keys(data);
 
-    return (categories as Array<string>).map((item: string) => ({
-      name: item, trend: item, setTrend: remoteSetTrend
-    }));
-
+    return (categories as Array<string>).map((item: string) => (
+      <Tab value={item} label={item} key={item}></Tab>
+    ));
   };
 
 
@@ -77,10 +74,20 @@ function TrendingPage() {
     <>
       {data && trend ? (
         <>
-          <Trendbar trendOptions={renderOptions()} />
-          <TrendGraph data={renderGraphData()} />
+          <Trendbar />
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={trend} onChange={(e, value) => remoteSetTrend(value)} aria-label="basic tabs example">
+              {renderOptions()}
+            </Tabs>
+          </Box>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <TrendGraph data={renderGraphData()} />
+          </div>
           {renderPosts()}
-
         </>
       ) : (
         <div className="centered">
