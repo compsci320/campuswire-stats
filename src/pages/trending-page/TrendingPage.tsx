@@ -42,7 +42,8 @@ function TrendingPage() {
         body: item['body'] as string,
         uniqueViewsCount: item['uniqueViewsCount'] as number,
         likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
-        isCritical: (item['answersCount'] === 0) as boolean
+        isCritical: (item['answersCount'] === 0) as boolean,
+        publishedAt: new Date(item["publishedAt"])
       }} />
     )
     );
