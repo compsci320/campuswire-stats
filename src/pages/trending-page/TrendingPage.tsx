@@ -63,7 +63,7 @@ function TrendingPage() {
         likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
         isCritical: (item['answersCount'] === 0) as boolean,
         publishedAt: new Date(item["publishedAt"]),
-        numComments: item['comments'].length as number
+        numComments: item['comments'] ? item['comments'].length : 0 as number
       })
     );
   }
