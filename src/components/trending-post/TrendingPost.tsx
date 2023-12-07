@@ -10,11 +10,15 @@ interface TrendingPageProps {
     body: string,
     uniqueViewsCount: number,
     likesCount: number,
+    publishedAt: Date,
     isCritical: boolean
   }
 }
 
 function TrendingPost(props: TrendingPageProps) {
+  let presentDate = new Date();
+  let diff = presentDate.getTime() - props.post.publishedAt.getTime();
+  let days = Math.floor(diff / (1000 * 3600 * 24));
   return (
     <div className={!props.post.isCritical ? "post-default" : "post-critical"}>
       <div className="post-header">
@@ -24,7 +28,7 @@ function TrendingPost(props: TrendingPageProps) {
           !props.post.isCritical ? <></> :
             <>
               <div style={{ flex: 1 }}></div>
-              <div style={{ fontSize: 'small', fontWeight: 400 }}>{"(Posted X days ago)"}</div>
+              <div style={{ fontSize: 'small', fontWeight: 400 }}>{`(Posted ${days} days ago)`}</div>
             </>
         }
       </div>
