@@ -94,7 +94,7 @@ function EngagementPage() {
         {/* Sort button with sort types */}
         
         
-         <div style={{ border: '2px solid #ccc', padding: '20px', borderRadius: '20px', margin: '20px'}}>
+         <div style={{ border: '2px solid #ccc', padding: '20px', borderRadius: '20px', margin: '40px'}}>
 
           <div style={{
               display: 'flex',
