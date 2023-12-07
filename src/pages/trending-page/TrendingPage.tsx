@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
-import mock_data from '../../mock/mock.json';
 import { TrendGraph } from '../../components/trend_graph/trend_graph';
+import { getTrendsData } from '../../service/TrendService';
 
 function TrendingPage() {
   const [data, setData] = useState(null);
@@ -12,14 +12,7 @@ function TrendingPage() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://localhost:5001/get_data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(mock_data)
-    })
-      .then(res => res.json())
+    getTrendsData()
       .then(data => {
         console.log('Data received:', data);
         setData(data);
