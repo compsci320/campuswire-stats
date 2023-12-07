@@ -1,12 +1,12 @@
 import React from 'react';
 import './EngagementPage.css';
-import { createViewModel, getUniqueUserCountByDate, createEngagementChartData } from '../../service/EngagementService';
+import { createViewModel, createEngagementChartData } from '../../service/EngagementService';
 import {Post} from "../../models/Post";
 import { Engagetable, Column, Data } from '../../components/engagetable/engagetable';
 import { EngagementGraph } from "../../components/engagementGraph/engagementGraph"
 import EngagementBar from '../../components/engagementbar/engagementbar';
 import SortMenu from '../../components/engagetable/sortbutton';
-import { basename } from 'path/posix';
+
 
 
 
@@ -88,24 +88,36 @@ function EngagementPage() {
             alignItems: 'center',
             justifyContent: 'center',
         }}>
-          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x}/>
+          <EngagementGraph engagement_data={chartData.y} x_title={"Dates"} x_axis={chartData.x} />
         </div>
         
         {/* Sort button with sort types */}
-        <SortMenu 
-          stateHandler={setSortOption} 
-          menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
-          currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
-        />
         
-        {/* Menu for choosing ascending or descending */}
-        <SortMenu 
-          stateHandler={setSortAscending} 
-          menuOptions={[["Ascending", true], ["Descending", false]]} 
-          currentOption={sortAscending ? "Ascending" : "Descending"}
-        />
         
-        <Engagetable columns={columns} rows={rows} />
+         <div style={{ border: '2px solid #ccc', padding: '20px', borderRadius: '20px', margin: '20px'}}>
+
+          <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+          }}>
+            <SortMenu 
+              stateHandler={setSortOption} 
+              menuOptions={[["Name", "name"], ["Number of Posts", "numPosts"], ["Number of Comments", "numComments"], ["Last Seen", "lastSeen"]]} 
+              currentOption={sortOption.length > 0 ? sortOption : "Sort By"}
+            />
+            
+            {/* Menu for choosing ascending or descending */}
+            <SortMenu 
+              stateHandler={setSortAscending} 
+              menuOptions={[["Ascending", true], ["Descending", false]]} 
+              currentOption={sortAscending ? "Ascending" : "Descending"}
+            />
+          </div>
+
+          <Engagetable columns={columns} rows={rows} />
+        </div>
+        
     </>
   );
   }

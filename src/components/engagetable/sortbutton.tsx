@@ -20,6 +20,14 @@ export default function SortMenu({stateHandler, menuOptions, currentOption}: {st
     return (
       <div>
         <Button
+          style={{
+            borderRadius: 20,
+            backgroundColor: "#f0f0f0",
+            color: "#6466e9",
+            padding: "5px 20px",
+            fontSize: "16px",
+            margin: 20
+          }}
           id="basic-button"
           aria-controls={open ? 'basic-menu' : undefined}
           aria-haspopup="true"
