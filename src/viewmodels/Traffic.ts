@@ -10,5 +10,8 @@ export interface TrafficViewModel {
     postsChange: number;
     resolvedPostsChange: number;
     hoursSinceLastPost: number;
+    traffic_data: any;
+    resolved_percentage: number;
+    unresolved_percentage: number;
 }
 
