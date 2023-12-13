@@ -36,7 +36,7 @@ export function EngagementGraph({engagement_data, x_title, x_axis}: {engagement_
   return (
     <ChartContainer
       series={series_template}
-      width={1000}
+      width={1500}
       height={500}
       xAxis={[
         {

@@ -50,8 +50,8 @@ export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns,
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth, fontWeight: 'bold' }}
+                  align="center"
+                  style={{ minWidth: column.minWidth, fontWeight: 'bold', fontSize: 'large' }}
                 >
                   {column.label}
                 </TableCell>
@@ -67,7 +67,11 @@ export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns,
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell 
+                          key={column.id} 
+                          align="center"
+                          style = {{fontSize: 'medium'}}
+                        >
                           {value}
                         </TableCell>
                       );
