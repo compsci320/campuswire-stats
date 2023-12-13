@@ -12,7 +12,7 @@ function TrendingPage() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://localhost:5001/get_data', {
+    fetch('http://campuswireanalytics.pythonanywhere.com/get_data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
