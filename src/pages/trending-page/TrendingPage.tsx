@@ -70,20 +70,6 @@ function TrendingPage() {
 
     return (
         <>
-          <Trendbar />
-          <div style = {{
-            display: 'flex',
-            flex: 1
-          }}>
-            <Box>
-              <Tabs value={trend} onChange={(e, value) => remoteSetTrend(value)} aria-label="basic tabs example">
-                {renderOptions()}
-              </Tabs>
-            </Box>
-          </div>
-          <TrendGraph data={renderGraphData()} />
-          <div style={{ height: 40 }}></div>
-          {renderPosts()}
             {data && trend ? (
                 <>
                     <Trendbar />
@@ -92,13 +78,8 @@ function TrendingPage() {
                             {renderOptions()}
                         </Tabs>
                     </Box>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                        <TrendGraph data={renderGraphData()} />
-                    </div>
+                    <TrendGraph data={renderGraphData()} />
+                    <div style={{ height: 40 }}></div>
                     {renderPosts()}
                 </>
             ) : (

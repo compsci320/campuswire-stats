@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:5001';
+// const API_URL = 'http://localhost:5001';
+const API_URL = 'http://campuswireanalytics.pythonanywhere.com'
 
 export async function get(path: string) {
     const requestInstructions = {
