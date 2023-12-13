@@ -14,7 +14,6 @@ function TrendingPage() {
   useEffect(() => {
     console.log('Fetching data...');
     getTrendsData()
-      .then(res => res.json())
       .then(data => {
         console.log('Data received:', data);
         setData(data);
