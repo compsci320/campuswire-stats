@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
-import { TrendGraph } from '../../components/trend_graph/trend_graph';
 import { getTrendsData } from '../../service/TrendService';
+import { TrendGraph } from '../../components/trend_graph/trend_graph';
 import { Box, Tab, Tabs } from '@mui/material';
 
 function TrendingPage() {
@@ -27,6 +27,7 @@ function TrendingPage() {
     if (data === null || trend === null)
       return [];
 
+
     return (data[trend] as Array<any>).map((item: any) => (
       <TrendingPost post={{
         title: item['title'] as string,
@@ -41,11 +42,8 @@ function TrendingPage() {
   };
 
   const renderGraphData = () => {
-    if (data === null)
+    if (data === null || trend === null)
       return [];
-
-    if (trend === null)
-      return []
 
     return (data[trend] as Array<any>).map((item: any) => (
       {
@@ -54,7 +52,7 @@ function TrendingPage() {
         likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
         isCritical: (item['answersCount'] === 0) as boolean,
         publishedAt: new Date(item["publishedAt"]),
-        numComments: item['comments'].length as number
+        numComments: item['comments'] ? item['comments'].length : 0 as number
       })
     );
   }
@@ -67,6 +65,7 @@ function TrendingPage() {
     return (categories as Array<string>).map((item: string) => (
       <Tab value={item} label={item} key={item}></Tab>
     ));
+
   };
 
 
