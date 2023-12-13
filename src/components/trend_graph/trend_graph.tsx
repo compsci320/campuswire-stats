@@ -89,8 +89,8 @@ export function TrendGraph(trendData: TrendGraphData) {
         <div>
             <ChartContainer
                 series={seriesData}
-                width={800}
-                height={400}
+                width={1500}
+                height={500}
                 xAxis={[
                     {
                         id: x_title,
@@ -111,7 +111,7 @@ export function TrendGraph(trendData: TrendGraphData) {
                 <ChartsYAxis label={type} position="left" />
                 <ChartsXAxis label={x_title} position="bottom" />
             </ChartContainer>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
                 {graphType.map((item: any) => {
                     return (
                         <div className="trendbar-graph-options" key={item.type}>
