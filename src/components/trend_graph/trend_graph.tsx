@@ -89,8 +89,8 @@ export function TrendGraph(trendData: TrendGraphData) {
         <div>
             <ChartContainer
                 series={seriesData}
-                width={800}
-                height={400}
+                width={1500}
+                height={500}
                 xAxis={[
                     {
                         id: x_title,
