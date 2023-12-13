@@ -1,7 +1,7 @@
-const API_URL = 'http://localhost:5001';
+const API_URL = 'http://campuswireanalytics.pythonanywhere.com';
 
 export async function get(path: string) {
-    const requestInstructions = { 
+    const requestInstructions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     }
@@ -11,8 +11,8 @@ export async function get(path: string) {
 }
 
 export async function post(path: string, payload: any) {
-    const requestInstructions = { 
-        method: 'POST', 
+    const requestInstructions = {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     }

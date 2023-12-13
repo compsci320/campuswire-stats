@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './TrendingPage.css';
 import Trendbar from '../../components/trendbar/trendbar';
 import TrendingPost from '../../components/trending-post/TrendingPost';
-import { TrendGraph } from '../../components/trend_graph/trend_graph';
 import { getTrendsData } from '../../service/TrendService';
+import { TrendGraph } from '../../components/trend_graph/trend_graph';
 import { Box, Tab, Tabs } from '@mui/material';
 
 function TrendingPage() {
@@ -13,13 +13,7 @@ function TrendingPage() {
 
   useEffect(() => {
     console.log('Fetching data...');
-    fetch('http://campuswireanalytics.pythonanywhere.com/get_data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(mock_data)
-    })
+    getTrendsData()
       .then(res => res.json())
       .then(data => {
         console.log('Data received:', data);
@@ -33,6 +27,7 @@ function TrendingPage() {
   const renderPosts = () => {
     if (data === null || trend === null)
       return [];
+
 
     return (data[trend] as Array<any>).map((item: any) => (
       <TrendingPost post={{
@@ -48,11 +43,8 @@ function TrendingPage() {
   };
 
   const renderGraphData = () => {
-    if (data === null)
+    if (data === null || trend === null)
       return [];
-
-    if (trend === null)
-      return []
 
     return (data[trend] as Array<any>).map((item: any) => (
       {
@@ -74,6 +66,7 @@ function TrendingPage() {
     return (categories as Array<string>).map((item: string) => (
       <Tab value={item} label={item} key={item}></Tab>
     ));
+
   };
 
 
