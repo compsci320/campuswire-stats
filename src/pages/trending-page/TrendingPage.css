@@ -43,3 +43,9 @@
     font-size: small;
     padding: 8px 12px;
 }
+
+.trend-graph {
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+}

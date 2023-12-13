@@ -79,11 +79,7 @@ function TrendingPage() {
               {renderOptions()}
             </Tabs>
           </Box>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+          <div className="trend-graph">
             <TrendGraph data={renderGraphData()} />
           </div>
           {renderPosts()}
