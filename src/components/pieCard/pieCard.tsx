@@ -3,11 +3,9 @@ import Box from '@mui/material/Box';
 import { PieChart } from '@mui/x-charts/PieChart';
 import React from 'react';
 
-interface PieColorProps {
-    sx: React.CSSProperties;
-}
-
-export const PieCard: React.FC<PieColorProps> = ({ sx }) => {
+  
+export const PieCard = (props: { sx: any, resolved_percentage: number, unresolved_percentage: number}) => {
+    const { sx, resolved_percentage, unresolved_percentage } = props;
     return (
         <Card sx={sx}>
             <CardContent>
@@ -23,7 +21,7 @@ export const PieCard: React.FC<PieColorProps> = ({ sx }) => {
                             series={[
                                 {
                                     type: 'pie',
-                                    data: [{ id: 'A', value: 10 }, { id: 'B', value: 20 }, { id: 'C', value: 30 }],
+                                    data: [{ id: 'A', value: resolved_percentage, label: "Resolved"}, { id: 'B', value: unresolved_percentage, label: "Unresolved"}],
                                     innerRadius: 25,
                                     outerRadius: 100,
                                     paddingAngle: 2,

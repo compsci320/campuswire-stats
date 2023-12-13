@@ -9,13 +9,14 @@ import { PieCard } from '../../components/pieCard/pieCard';
 import { Typography } from '@mui/material';
 import { RecentResolvedPostsCard } from '../../components/recentResolvedPostsCard/recentResolvedPostsCard';
 import { RecentCommentsCard } from '../../components/recentCommentsCard/recentCommentsMade';
-import { TrafficBar } from '../../components/trafficBar/trafficBar';
+import { TrafficGraph } from '../../components/trafficGraph/trafficGraph';
 
 let post_data: Post[] = require('../../mock/mock.json');
 const viewModel = createViewModel(post_data);
 
 const cardStyles = { height: '150px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' };
 const pieColorStyles = { height: '350px', width: '350px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
+const graphColorStyles = { height: '350px', width: '350px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
 
 function TrafficPage() {
   return (
@@ -56,8 +57,14 @@ function TrafficPage() {
           </div>
 
         
-          <PieCard sx={pieColorStyles} />
+          <PieCard sx={pieColorStyles} resolved_percentage={viewModel.resolved_percentage} unresolved_percentage={viewModel.unresolved_percentage}/>
+
+          <TrafficGraph trafficData={viewModel.traffic_data.y} xTitle="Dates" xAxis={viewModel.traffic_data.x} sx={graphColorStyles} />
+
         </div>
+
+        
+
       </Paper>
     </div>
   );

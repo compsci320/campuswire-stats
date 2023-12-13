@@ -15,8 +15,11 @@ export function createViewModel(posts: Post[]): TrafficViewModel {
     let postsChange = getPostsChange(posts);
     let resolvedPostsChange = getResolvedPostsChange(posts);
     let hoursSinceLastPost = getHoursSinceLastPost(posts);
+    let traffic_data = getTrafficGraphData(posts);
+    let resolved_percentage = getResolvedPercentage(posts);
+    let unresolved_percentage = getUnresolvedPercentage(posts);
 
-    return {hoursSinceLastPost: hoursSinceLastPost, resolvedPostsChange: resolvedPostsChange, postsChange: postsChange, commentsChange: commentsChange, unansweredPostsCount: unansweredPostsCount, recentCommentsCount: recentCommentsCount, recentPostsCount: recentPostsCount, recentResolvedPostsCount: recentResolvedPostsCount, recentVisitorsPoints: [], recentResponseRates: [], resolutionPercentage: 0};
+    return {resolved_percentage, unresolved_percentage, traffic_data: traffic_data, hoursSinceLastPost: hoursSinceLastPost, resolvedPostsChange: resolvedPostsChange, postsChange: postsChange, commentsChange: commentsChange, unansweredPostsCount: unansweredPostsCount, recentCommentsCount: recentCommentsCount, recentPostsCount: recentPostsCount, recentResolvedPostsCount: recentResolvedPostsCount, recentVisitorsPoints: [], recentResponseRates: [], resolutionPercentage: 0};
 }
 
 export function getUnansweredPosts(posts: Post[]): number {
@@ -133,4 +136,51 @@ export function getHoursSinceLastPost(posts: Post[]): number {
     };
 
     return hoursSinceLastPost;
+}
+
+export function getTrafficGraphData(posts: Post[]): any {
+    let postCountByDate = getPostCountByDate(posts);
+    let x_axis: string[] = [];
+    let traffic_data: number[] = [];
+
+    postCountByDate.forEach((value, key) => {
+        x_axis.push(key);
+        traffic_data.push(value);
+    });
+
+    return {x: x_axis, y: traffic_data};
+}
+
+export function getPostCountByDate(posts: Post[]): Map<string, number> {
+    let result = new Map();
+    posts.forEach(post => {
+        let date = new Date(post.publishedAt);
+        let dateString = date.toISOString().split('T')[0];
+        if (result.has(dateString)) {
+            result.set(dateString, result.get(dateString) + 1);
+        } else {
+            result.set(dateString, 1);
+        }
+    });
+    return result;
+}
+
+export function getResolvedPercentage(posts: Post[]): number {
+    let resolvedCount = 0;
+    posts.forEach(post => {
+        if (post.modAnsweredAt !== undefined) {
+            resolvedCount++;
+        }
+    });
+    return (resolvedCount / posts.length) * 100;
+}
+
+export function getUnresolvedPercentage(posts: Post[]): number {
+    let unresolvedCount = 0;
+    posts.forEach(post => {
+        if (post.modAnsweredAt === undefined) {
+            unresolvedCount++;
+        }
+    });
+    return (unresolvedCount / posts.length) * 100;
 }
