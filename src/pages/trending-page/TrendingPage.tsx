@@ -34,7 +34,7 @@ function TrendingPage() {
         body: item['body'] as string,
         uniqueViewsCount: item['uniqueViewsCount'] as number,
         likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
-        isCritical: (item['answersCount'] === 0) as boolean,
+        isCritical: item['answersCount'] ? true : false,
         publishedAt: new Date(item["publishedAt"])
       }} />
     )
@@ -50,7 +50,7 @@ function TrendingPage() {
         title: item['title'] as string,
         uniqueViewsCount: item['uniqueViewsCount'] as number,
         likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
-        isCritical: (item['answersCount'] === 0) as boolean,
+        isCritical: ((item['answersCount']) as number) === 0,
         publishedAt: new Date(item["publishedAt"]),
         numComments: item['comments'] ? item['comments'].length : 0 as number
       })
@@ -76,24 +76,16 @@ function TrendingPage() {
           <Trendbar />
           <div style = {{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            flex: 1
           }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box>
               <Tabs value={trend} onChange={(e, value) => remoteSetTrend(value)} aria-label="basic tabs example">
                 {renderOptions()}
               </Tabs>
             </Box>
           </div>
-          
-          <div style = {{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '50px'
-          }}>
-            <TrendGraph data={renderGraphData()} />
-          </div>
+          <TrendGraph data={renderGraphData()} />
+          <div style={{ height: 40 }}></div>
           {renderPosts()}
         </>
       ) : (

@@ -1,10 +1,10 @@
 .trend-graph-option-selected {
     border-style: solid;
     border-width: 3px;
-    border-color: #080d17;
+    border-color: rgb(55 48 163);
     border-radius: 20px;
 
-    background-color: #080d17;
+    background-color: rgb(79 70 229);
     min-width: 100px;
 
     padding: 0px 20px 0px 20px;
@@ -17,7 +17,7 @@
 .trend-graph-option-default {
     border-style: solid;
     border-width: 3px;
-    border-color: #F0F0F0;
+    border-color: #7d7d7d;
     border-radius: 20px;
     min-width: 100px;
 
@@ -25,5 +25,5 @@
 
     font-size: 18px;
     text-align: center;
-    color: #F0F0F0;
+    color: #7d7d7d;
 }

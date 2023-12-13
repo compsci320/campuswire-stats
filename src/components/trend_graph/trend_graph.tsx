@@ -85,11 +85,15 @@ export function TrendGraph(trendData: TrendGraphData) {
 
     const seriesData = createSeriesData(dataList);
 
+    window.addEventListener('resize', function(event) {
+        window.location.reload();
+    }, true);
+
     return (
         <div>
             <ChartContainer
                 series={seriesData}
-                width={1500}
+                width={window.innerWidth - 275}
                 height={500}
                 xAxis={[
                     {
@@ -115,7 +119,7 @@ export function TrendGraph(trendData: TrendGraphData) {
                 {graphType.map((item: any) => {
                     return (
                         <div className="trendbar-graph-options" key={item.type}>
-                            <TrendGraphOption name={item.type} trend={item.type} setTrend={item.setType} />
+                            <TrendGraphOption name={item.type} trend={type} setTrend={item.setType} />
                         </div>
                     );
                 })}

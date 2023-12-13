@@ -25,10 +25,15 @@ function TrendingPost(props: TrendingPageProps) {
         {props.post.title}
         {!props.post.isCritical ? <></> : <PriorityHighIcon sx={{ paddingBottom: 0, paddingLeft: 0 }} />}
         {
-          !props.post.isCritical ? <></> :
+          !props.post.isCritical ? 
             <>
               <div style={{ flex: 1 }}></div>
-              <div style={{ fontSize: 'small', fontWeight: 400 }}>{`(Posted ${days} days ago)`}</div>
+              <div style={{ fontSize: 'small', fontWeight: 400 }}>Posted {days} days ago</div>
+            </> 
+            :
+            <>
+              <div style={{ flex: 1 }}></div>
+              <div style={{ fontSize: 'small', fontWeight: 400 }}>No replies for {days} days</div>
             </>
         }
       </div>
