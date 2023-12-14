@@ -3,9 +3,9 @@ import Box from '@mui/material/Box';
 import { PieChart } from '@mui/x-charts/PieChart';
 import React from 'react';
 
-  
-export const PieCard = (props: { sx: any, resolved_percentage: number, unresolved_percentage: number}) => {
+export const PieCard = (props: { sx: any, resolved_percentage: number, unresolved_percentage: number }) => {
     const { sx, resolved_percentage, unresolved_percentage } = props;
+
     return (
         <Card sx={sx}>
             <CardContent>
@@ -21,7 +21,10 @@ export const PieCard = (props: { sx: any, resolved_percentage: number, unresolve
                             series={[
                                 {
                                     type: 'pie',
-                                    data: [{ id: 'A', value: resolved_percentage, label: "Resolved"}, { id: 'B', value: unresolved_percentage, label: "Unresolved"}],
+                                    data: [
+                                        { id: 'A', value: resolved_percentage, label: "Resolved Posts" },
+                                        { id: 'B', value: unresolved_percentage, label: "Unresolved Posts" }
+                                    ],
                                     innerRadius: 25,
                                     outerRadius: 100,
                                     paddingAngle: 2,
@@ -32,6 +35,14 @@ export const PieCard = (props: { sx: any, resolved_percentage: number, unresolve
                                     cy: 100,
                                 }
                             ]}
+                            // Add legend configuration here
+                            slotProps={{
+                                legend: {
+                                    direction: 'row',
+                                    position: { vertical: 'top', horizontal: 'middle' },
+                                    padding: 250,
+                                }
+                            }}
                         />
                     </Box>
                 </Stack>

@@ -15,55 +15,55 @@ let post_data: Post[] = require('../../mock/mock.json');
 const viewModel = createViewModel(post_data);
 
 const cardStyles = { height: '150px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' };
-const pieColorStyles = { height: '350px', width: '350px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
-const graphColorStyles = { height: '350px', width: '350px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
+const pieColorStyles = { height: '425px', width: '400px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
+const graphColorStyles = { height: '425px', width: '700px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
 
 function TrafficPage() {
+  console.log("x", viewModel.traffic_data.x)
+  console.log("y", viewModel.traffic_data.y)
+
+
   return (
     <div style={{ backgroundColor: '#f8f2ed', minHeight: '100vh', padding: '16px' }}>
       <Paper elevation={3} sx={{ padding: 2, margin: 2, display: 'flex', flexDirection: 'column', backgroundColor: '#fbfcf8' }}>
         <div id="bigheading" style={{ marginBottom: '8px' }}>
           <Typography variant="h2" color='text.primary' textAlign='center'>Current Traffic</Typography>
         </div>
-        <div id="welcome" style={{ marginBottom: '8px' }}>
+        <div id="welcome" style={{ marginBottom: '16px' }}>
           <Typography variant="h4" color='text.primary' textAlign='left'>Welcome!</Typography>
         </div>
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div style={{ display: 'flex', gap: '16px', flexDirection: 'row', flexWrap: 'wrap', width:'600px'}}>
-            <UnansweredPostsCard 
-              hours={viewModel.hoursSinceLastPost}
-              sx={cardStyles}
-              value={viewModel.unansweredPostsCount}
-            />
-            <RecentCommentsCard
-              difference={viewModel.commentsChange}
-              positive={viewModel.commentsChange > 0}
-              sx={cardStyles}
-              value={viewModel.recentCommentsCount}
-              />
-            <RecentPostsCard 
-          difference={viewModel.postsChange}
-          positive={viewModel.postsChange > 0}
-          sx={cardStyles}
-          value={viewModel.recentPostsCount}
-        />
-            <RecentResolvedPostsCard 
-              difference={viewModel.resolvedPostsChange}
-              positive={viewModel.resolvedPostsChange > 0}
-              sx={cardStyles}
-              value={viewModel.recentResolvedPostsCount}
-            />
-          </div>
-
         
-          <PieCard sx={pieColorStyles} resolved_percentage={viewModel.resolved_percentage} unresolved_percentage={viewModel.unresolved_percentage}/>
-
-          <TrafficGraph trafficData={viewModel.traffic_data.y} xTitle="Dates" xAxis={viewModel.traffic_data.x} sx={graphColorStyles} />
-
+        {/* Cards Row */}
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '16px' }}>
+          <UnansweredPostsCard
+            hours={viewModel.hoursSinceLastPost}
+            sx={cardStyles}
+            value={viewModel.unansweredPostsCount}
+          />
+          <RecentCommentsCard
+            difference={viewModel.commentsChange}
+            positive={viewModel.commentsChange > 0}
+            sx={cardStyles}
+            value={viewModel.recentCommentsCount}
+          />
+          <RecentPostsCard
+            difference={viewModel.postsChange}
+            positive={viewModel.postsChange > 0}
+            sx={cardStyles}
+            value={viewModel.recentPostsCount}
+          />
+          <RecentResolvedPostsCard
+            difference={viewModel.resolvedPostsChange}
+            positive={viewModel.resolvedPostsChange > 0}
+            sx={cardStyles}
+            value={viewModel.recentResolvedPostsCount}
+          />
         </div>
-
-        
-
+        {/* Charts Row */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
+          <PieCard sx={pieColorStyles} resolved_percentage={viewModel.resolved_percentage} unresolved_percentage={viewModel.unresolved_percentage} />
+          <TrafficGraph y={viewModel.traffic_data.y} x={viewModel.traffic_data.x} sx={graphColorStyles} />
+        </div>
       </Paper>
     </div>
   );
