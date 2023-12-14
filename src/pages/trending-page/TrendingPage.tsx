@@ -27,33 +27,33 @@ function TrendingPage() {
         if (data === null || trend === null)
             return [];
 
-    return (data[trend] as Array<any>).map((item: any) => (
-      <TrendingPost post={{
-        title: item['title'] as string,
-        body: item['body'] as string,
-        uniqueViewsCount: item['uniqueViewsCount'] as number,
-        likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
-        isCritical: item['answersCount'] ? true : false,
-        publishedAt: new Date(item["publishedAt"])
-      }} />
-    )
-    );
-  };
+        return (data[trend] as Array<any>).map((item: any) => (
+            <TrendingPost post={{
+                title: item['title'] as string,
+                body: item['body'] as string,
+                uniqueViewsCount: item['uniqueViewsCount'] as number,
+                likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
+                isCritical: item['answersCount'] ? false : true,
+                publishedAt: new Date(item["publishedAt"])
+            }} />
+        )
+        );
+    };
 
     const renderGraphData = () => {
         if (data === null || trend === null)
             return [];
 
-      return (data[trend] as Array<any>).map((item: any) => (
-        {
-          title: item['title'] as string,
-          uniqueViewsCount: item['uniqueViewsCount'] as number,
-          likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
-          isCritical: ((item['answersCount']) as number) === 0,
-          publishedAt: new Date(item["publishedAt"]),
-          numComments: item['comments'] ? item['comments'].length : 0 as number
-        })
-      );
+        return (data[trend] as Array<any>).map((item: any) => (
+            {
+                title: item['title'] as string,
+                uniqueViewsCount: item['uniqueViewsCount'] as number,
+                likesCount: item['likesCount'] ? item['likesCount'] : 0 as number,
+                isCritical: ((item['answersCount']) as number) === 0,
+                publishedAt: new Date(item["publishedAt"]),
+                numComments: item['comments'] ? item['comments'].length : 0 as number
+            })
+        );
     }
 
     const renderOptions = () => {
