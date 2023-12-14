@@ -11,22 +11,27 @@ import { RecentResolvedPostsCard } from '../../components/recentResolvedPostsCar
 import { RecentCommentsCard } from '../../components/recentCommentsCard/recentCommentsMade';
 import { TrafficGraph } from '../../components/trafficGraph/trafficGraph';
 
+// Mock data import for posts.
 let post_data: Post[] = require('../../mock/mock.json');
+// Creating a view model from the post data.
 const viewModel = createViewModel(post_data);
 
+// Styles for various cards and graphs in the component.
 const cardStyles = { height: '150px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' };
-const pieColorStyles = { height: '425px', width: '400px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
-const graphColorStyles = { height: '425px', width: '700px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' }; // Adjusted size for the PieCard
+const pieColorStyles = { height: '425px', width: '400px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' };
+const graphColorStyles = { height: '425px', width: '700px', backgroundColor: '#fbfbf9', border: '0.5px solid #bababa' };
 
+// TrafficPage component to display the traffic data in a user-friendly format.
 function TrafficPage() {
+  // Debug logs for traffic data.
   console.log("x", viewModel.traffic_data.x)
   console.log("y", viewModel.traffic_data.y)
-
 
   return (
     <div style={{ backgroundColor: '#f8f2ed', minHeight: '100vh', padding: '16px' }}>
 
       <Paper elevation={3} sx={{ padding: 2, margin: 2, display: 'flex', flexDirection: 'column', backgroundColor: '#fbfcf8' }}>
+        {/* Header section */}
         <div id="bigheading" style={{ marginBottom: '8px' }}>
         <TrafficBar />
 
@@ -35,7 +40,7 @@ function TrafficPage() {
           <Typography variant="h4" color='text.primary' textAlign='left'>Welcome!</Typography>
         </div>
         
-        {/* Cards Row */}
+        {/* Displaying various cards with traffic statistics */}
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '16px' }}>
           <UnansweredPostsCard
             hours={viewModel.hoursSinceLastPost}
@@ -61,7 +66,8 @@ function TrafficPage() {
             value={viewModel.recentResolvedPostsCount}
           />
         </div>
-        {/* Charts Row */}
+
+        {/* Displaying pie chart and traffic graph */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px' }}>
           <PieCard sx={pieColorStyles} resolved_percentage={viewModel.resolved_percentage} unresolved_percentage={viewModel.unresolved_percentage} />
           <TrafficGraph y={viewModel.traffic_data.y} x={viewModel.traffic_data.x} sx={graphColorStyles} />

@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
-import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
-import { Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
+import { Card, CardContent, Stack, Typography } from '@mui/material';
 
 export const UnansweredPostsCard = (props: { hours: any; sx: any; value: any; }) => {
   const { hours, sx, value } = props;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { AllSeriesType } from '@mui/x-charts/models';
 import { Card, CardContent, Stack, Typography } from '@mui/material';
 import { BarChart } from '@mui/x-charts/BarChart';
 
@@ -14,15 +13,7 @@ interface TrafficGraphProps {
 }
 
 export const TrafficGraph: React.FC<TrafficGraphProps> = ({ x, y, sx}) => {
-    const series = [
-        {
-            type: 'bar',
-            yAxisKey: 'eco',
-            data: y,
-        },
-        ] as AllSeriesType[];
-  return (
-    
+  return ( 
     <Card sx={sx}>
       <CardContent>
         <Stack display='flex' direction="row" width="100%" height = "100%" textAlign="left" spacing={1}>
