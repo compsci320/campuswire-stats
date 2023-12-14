@@ -14,7 +14,7 @@
         "body": "What is the code to view the echo 360 lectures? I cannot find them",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-08T15:26:03.021624Z",
+        "publishedAt": "2023-12-14T15:26:03.021624Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 1,
         "type": "question",
@@ -22,7 +22,7 @@
         "slug": "67CPF69F1",
         "createdAt": "2022-09-08T15:25:39.005352Z",
         "updatedAt": "2022-09-10T01:50:58.726303Z",
-        "answersCount": 1,
+        "answersCount": 0,
         "uniqueViewsCount": 131,
         "viewsCount": 388,
         "answeredAt": "2022-09-10T01:50:58.726303Z",
@@ -200,7 +200,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-10T01:33:58.501688Z",
-                "publishedAt": "2022-09-10T01:39:51.408011Z",
+                "publishedAt": "2022-12-13T01:39:51.408011Z",
                 "endorsed": false,
                 "depth": 1
             },
@@ -322,7 +322,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-10T01:33:21.881099Z",
-                "publishedAt": "2022-09-10T01:33:30.003343Z",
+                "publishedAt": "2023-12-14T01:33:30.003343Z",
                 "endorsed": false,
                 "depth": 1
             }
@@ -627,7 +627,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-14T20:38:29.194252Z",
-                "publishedAt": "2022-09-14T20:39:20.260063Z",
+                "publishedAt": "2023-12-13T20:39:20.260063Z",
                 "endorsed": false,
                 "depth": 1
             }
@@ -835,7 +835,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-15T05:43:38.295129Z",
-                "publishedAt": "2022-09-15T05:44:13.553534Z",
+                "publishedAt": "2023-12-13T05:44:13.553534Z",
                 "endorsed": false,
                 "depth": 1
             }
@@ -961,7 +961,7 @@
         "body": "Hi, is the submission page for HW0 up on Gradescope yet? When I logged in to Gradescope, it said: \"Your instructor hasn't released any assignments yet.\".",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-15T00:33:30.014959Z",
+        "publishedAt": "2023-12-14T00:33:30.014959Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 10,
         "type": "question",
@@ -1067,7 +1067,7 @@
         "body": "Hi there,\n\nI was wondering what version of python we should be programming in? Thanks in advance!",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-15T01:18:56.663315Z",
+        "publishedAt": "2023-12-14T01:18:56.663315Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 11,
         "type": "question",
@@ -1189,7 +1189,7 @@
         "body": "This is just a heads up but I'm wondering when the submission tab will be opened on Gradescope for Homework 1? I checked Gradescope and I think it's still empty now for me. Thanks!",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-15T04:09:04.552152Z",
+        "publishedAt": "2023-12-13T04:09:04.552152Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 12,
         "type": "question",
@@ -1449,7 +1449,7 @@
         "viewsCount": 17,
         "votesCount": 1,
         "answeredAt": "2022-09-16T01:10:04.036222Z",
-        "modAnsweredAt": "2022-09-16T01:10:04.036222Z",
+        "modAnsweredAt": "2023-12-13T01:10:04.036222Z",
         "read": true,
         "conversation": {
             "id": "37baf42e-8a01-4270-9def-4b211c54c0d9",
@@ -1555,7 +1555,7 @@
         "uniqueViewsCount": 131,
         "viewsCount": 300,
         "answeredAt": "2022-09-16T01:12:10.324631Z",
-        "modAnsweredAt": "2022-09-16T01:12:10.324631Z",
+        "modAnsweredAt": "2023-12-13T01:12:10.324631Z",
         "read": true,
         "conversation": {
             "id": "3cbcec88-3801-4fe7-b685-84a6beef58b7",
@@ -1659,7 +1659,7 @@
         "viewsCount": 16,
         "votesCount": 1,
         "answeredAt": "2022-09-16T01:12:54.937103Z",
-        "modAnsweredAt": "2022-09-16T01:12:54.937103Z",
+        "modAnsweredAt": "2023-12-13T01:12:54.937103Z",
         "read": true,
         "conversation": {
             "id": "56cb69e7-88ca-42b9-ac27-1673e05be400",
@@ -1752,7 +1752,7 @@
         "body": "Can you provide an example of what the function should return given some input?\n![image.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/.../image.png)",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-15T22:54:25.264251Z",
+        "publishedAt": "2023-12-13T10:54:25.264251Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 20,
         "type": "question",
@@ -1760,7 +1760,7 @@
         "slug": "232192EPC",
         "createdAt": "2022-09-15T22:53:28.041777Z",
         "updatedAt": "2022-09-16T00:01:26.097503Z",
-        "answersCount": 1,
+        "answersCount": 0,
         "uniqueViewsCount": 126,
         "viewsCount": 228,
         "votesCount": 1,
@@ -1873,7 +1873,7 @@
         "body": "zzz Over certainly rather run information without. Peace catch foreign science food. Add no among live.\nAmount discover rather such choice.",
         "anonymous": true,
         "published": true,
-        "publishedAt": "2022-09-15T23:28:47.989502Z",
+        "publishedAt": "2023-12-15T23:28:47.989502Z",
         "group": "17cda193-edc7-46d3-9ee4-969df8027cb7",
         "number": 21,
         "type": "question",
@@ -1881,11 +1881,11 @@
         "slug": "669883P19",
         "createdAt": "2022-09-15T23:20:21.693965Z",
         "updatedAt": "2022-09-16T01:14:30.849985Z",
-        "answersCount": 1,
+        "answersCount": 0,
         "uniqueViewsCount": 10,
         "viewsCount": 12,
         "answeredAt": "2022-09-16T01:14:30.849985Z",
-        "modAnsweredAt": "2022-09-16T01:14:30.849985Z",
+        "modAnsweredAt": "2023-12-13T01:14:30.849985Z",
         "read": true,
         "conversation": {
             "id": "725908f6-a0b0-4833-bbea-018959af7eda",
@@ -2251,7 +2251,7 @@
         "slug": "8PF66DE9F",
         "createdAt": "2022-09-16T01:18:23.904889Z",
         "updatedAt": "2022-09-18T02:54:21.653725Z",
-        "answersCount": 5,
+        "answersCount": 0,
         "likesCount": 7,
         "uniqueViewsCount": 138,
         "viewsCount": 438,
@@ -2478,7 +2478,7 @@
         "viewsCount": 19,
         "votesCount": 1,
         "answeredAt": "2022-09-17T00:19:17.317722Z",
-        "modAnsweredAt": "2022-09-17T00:19:17.317722Z",
+        "modAnsweredAt": "2023-12-14T00:19:17.317722Z",
         "read": true,
         "conversation": {
             "id": "888712ce-f01e-4021-81d5-8c46972dc11c",
@@ -2549,7 +2549,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-17T00:18:05.801319Z",
-                "publishedAt": "2022-09-17T00:19:17.274576Z",
+                "publishedAt": "2023-12-12T00:19:17.274576Z",
                 "endorsed": false,
                 "votesCount": 1,
                 "depth": 1
@@ -2771,7 +2771,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-18T02:53:37.606415Z",
-                "publishedAt": "2022-09-18T02:53:38.084084Z",
+                "publishedAt": "2023-12-12T02:53:38.084084Z",
                 "endorsed": false,
                 "depth": 1
             }
@@ -4062,7 +4062,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-21T01:43:17.933029Z",
-                "publishedAt": "2022-09-21T01:43:17.932096Z",
+                "publishedAt": "2023-12-13T01:43:17.932096Z",
                 "endorsed": false,
                 "depth": 1
             }
@@ -4492,7 +4492,7 @@
                 "answer": true,
                 "metadata": {},
                 "createdAt": "2022-09-21T15:47:34.805954Z",
-                "publishedAt": "2022-09-21T15:51:14.101519Z",
+                "publishedAt": "2023-12-14T15:51:14.101519Z",
                 "endorsed": false,
                 "depth": 1
             },
