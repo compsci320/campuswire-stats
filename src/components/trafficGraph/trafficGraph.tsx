@@ -22,7 +22,7 @@ export const TrafficGraph: React.FC<TrafficGraphProps> = ({ x, y, sx}) => {
               Posts Made
             </Typography>
               <BarChart
-                series={[{ data: y, color:'#26c6da' }]}
+                series={[{ data: y, color:'#6466e9' }]}
                 xAxis={[{ scaleType: 'band', data: x, 
                 tickLabelStyle: {
                     angle: 45,

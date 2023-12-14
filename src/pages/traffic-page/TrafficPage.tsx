@@ -29,7 +29,7 @@ function TrafficPage() {
   console.log("y", viewModel.traffic_data.y)
 
   return (
-    <div style={{ backgroundColor: '#f8f2ed', minHeight: '100vh', padding: '8px'}}>
+    <div style={{ backgroundColor: 'white', minHeight: '100vh', padding: '8px'}}>
       <Paper elevation={3} sx={{ padding: 2, margin: 2, display: 'flex', flexDirection: 'column', backgroundColor: '#fbfcf8' }}>
         {/* Header section */}
         <div id="bigheading" style={{ marginBottom: '2px' }}>
