@@ -10,6 +10,7 @@ import { Typography } from '@mui/material';
 import { RecentResolvedPostsCard } from '../../components/recentResolvedPostsCard/recentResolvedPostsCard';
 import { RecentCommentsCard } from '../../components/recentCommentsCard/recentCommentsMade';
 import { TrafficGraph } from '../../components/trafficGraph/trafficGraph';
+import { TrafficBar } from '../../components/trafficBar/trafficBar';
 
 // Mock data import for posts.
 let post_data: Post[] = require('../../mock/mock.json');
