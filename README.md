@@ -19,6 +19,9 @@ By default, our app uses a backend hosted online. You can find server/README.md 
 # How To Use Our Website
 
 ## Trends Page
+You can view the trends page by clicking the "Trend" tab on the left.
+
+In the trend page, you will find a bar
 
 ## Engagement Page
 You can view the engagement page by clicking the "Engagement" tab on the left.
