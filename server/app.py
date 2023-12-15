@@ -1,9 +1,10 @@
-import nltk
+import nltk  # Imported Libraries
 import json
 from nltk.corpus import stopwords
 from flask import Flask, request
 from flask_cors import CORS
 
+# Initialize Flask app
 app = Flask(__name__)
 CORS(app, origins="http://localhost:3000")
 

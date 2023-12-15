@@ -9,31 +9,57 @@ This project, Campuswire Analytics, is a web application that provides analytics
 ## File Structure
 
 /node_modules: Node.js modules
+
 /public: Static files
+
 /server: Backend server file, virtual environment for server, and README for server
+
 /src: React source code
+
     /components: React components for the web application
+
     /mock: Mock data for testing
+
     /models: Data models used in the application
+
     /pages: React page components for the web application
+
     /service: Service layer for interacting with the backend
+
     /viewmodels: View models used in the application
+
     App.css: Styles for the main App component
+
     App.test.tsx: Test file for the App component
+    
     App.tsx: Main App component
+
     index.css: Global styles
+
     index.tsx: Main entry point
+
     logo.svg: Logo file
+
     react-app-env.d.ts: TypeScript declaration file for global types
+
     reportWebVitals.ts: Web Vitals reporting
+
     Router.tsx: React Router configuration
+
     setupTests.tsx: Setup file for Jest tests  
+
 .gitignore: Git ignore file to specify untracked files by Git
+
 package-lock.json: NPM package lock file to lock versions of dependencies installed in the project
+
 package.json: NPM package file to manage/document metadata about the project
+
 README.md: Markdown README file
+
 README.pdf: PDF version of README
+
 tailwind.config.js: Tailwind CSS configuration
+
 tsconfig.json: TypeScript configuration
 
 ## Getting Started
