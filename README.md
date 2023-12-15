@@ -2,9 +2,73 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Overview
+
+This project, Campuswire Analytics, is a web application that provides analytics on user engagement, trending topics, and user traffic in Campuswire.
+
+## File Structure
+
+    /node_modules: Node.js modules
+
+    /public: Static files
+
+    /server: Backend server file, virtual environment for server, and README for server
+
+    /src: React source code
+
+        /components: React components for the web application
+
+        /mock: Mock data for testing
+
+        /models: Data models used in the application
+
+        /pages: React page components for the web application
+
+        /service: Service layer for interacting with the backend
+
+        /viewmodels: View models used in the application
+
+        App.css: Styles for the main App component
+
+        App.test.tsx: Test file for the App component
+        
+        App.tsx: Main App component
+
+        index.css: Global styles
+
+        index.tsx: Main entry point
+
+        logo.svg: Logo file
+
+        react-app-env.d.ts: TypeScript declaration file for global types
+
+        reportWebVitals.ts: Web Vitals reporting
+
+        Router.tsx: React Router configuration
+
+        setupTests.tsx: Setup file for Jest tests  
+
+    .gitignore: Git ignore file to specify untracked files by Git
+
+    package-lock.json: NPM package lock file to lock versions of dependencies installed in the project
+
+    package.json: NPM package file to manage/document metadata about the project
+
+    README.md: Markdown README file
+
+    README.pdf: PDF version of README
+
+    tailwind.config.js: Tailwind CSS configuration
+
+    tsconfig.json: TypeScript configuration
+
 ## Getting Started
 
-From the project directory, you can run:
+To install all dependencies for the project, you can run:
+
+### `npm install`
+
+To start the application, you can run:
 
 ### `npm start`
 
@@ -49,3 +113,23 @@ The first card shows the current number of unanswered posts, and at the bottom o
 Below the cards showing these statistics there is a card that displays a pie chart. The pie chart reports the number of resolved posts compared to the number of unresolved posts. To the right of this card is another card that displays a line graph. This line graph displays the number of posts made on each day that the campuswire page has been active. 
 
 The cards that show statistics only work when the data being provided is current. When testing, we altered the dates in the mock data provided in order to make sure that these cards worked as planned, but with the original data the statistics don't show because they utilize the current date and time to calculate posts and comments made in the past 24 hours.
+
+# Team Member Names:
+Liam Gates
+
+Derek Lacy
+
+Kevin Oliveria
+
+Sam O'Nuallain
+
+Agneshka Rohra
+
+Algis Petlin
+
+Anisha Prahti
+
+Sneha Pullanoor
+
+# GitHub Respository Link:
+Link: https://github.com/compsci320/campuswire-stats 
