@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 
-This project, Campuswire Analytics, is a web application that provides analytics on user engagement, trending topics, and user traffic on Campuswire.
+This project, Campuswire Analytics, is a web application that provides analytics on user engagement, trending topics, and user traffic in Campuswire.
 
 ## File Structure
 
@@ -32,7 +32,7 @@ This project, Campuswire Analytics, is a web application that provides analytics
 package-lock.json: NPM package lock file to lock versions of dependencies installed in the project
 package.json: NPM package file to manage/document metadata about the project
 README.md: Markdown README file
-README.pdf: PDF version of READM
+README.pdf: PDF version of README
 tailwind.config.js: Tailwind CSS configuration
 tsconfig.json: TypeScript configuration
 
