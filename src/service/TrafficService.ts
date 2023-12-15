@@ -1,7 +1,12 @@
 import { TrafficViewModel } from "../viewmodels/Traffic";
 import { Post } from "../models/Post";
 
-// Function to create a TrafficViewModel from an array of Post objects.
+/** 
+ Create a TrafficViewModel from an array of Post objects.
+ *@param  {Post[]} posts - Campuswire posts with Post interface
+ *@return {TrafficViewModel} Traffic page statistics with TrafficViewModel interface
+*/ 
+
 export function createViewModel(posts: Post[]): TrafficViewModel {
     // Calculate various statistics and metrics from the posts.
     let unansweredPostsCount = getUnansweredPosts(posts);
@@ -32,7 +37,12 @@ export function createViewModel(posts: Post[]): TrafficViewModel {
     };
 }
 
-// Calculate the number of posts without answers.
+/** 
+* Counts number of posts without answers.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of unanswered posts
+*/
+
 export function getUnansweredPosts(posts: Post[]): number {
     let unansweredPostsCount = 0;
     posts.forEach(post => {
@@ -43,7 +53,12 @@ export function getUnansweredPosts(posts: Post[]): number {
     return unansweredPostsCount;
 }
 
-// Calculate the number of comments in the last 24 hours.
+/** 
+* Counts number of comments made on posts in the past 24 hours.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of comments made in past 24 hours
+*/
+
 export function getRecentComments(posts: Post[]): number {
     let recentCommentsCount = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -60,7 +75,12 @@ export function getRecentComments(posts: Post[]): number {
     return recentCommentsCount;
 }
 
-// Calculate the number of posts in the last 24 hours.
+/** 
+* Counts number of posts made in past 24 hours.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of recently made posts
+*/
+
 export function getRecentPosts(posts: Post[]): number {
     let recentPostsCount = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -75,7 +95,12 @@ export function getRecentPosts(posts: Post[]): number {
     return recentPostsCount;
 }
 
-// Calculate the number of resolved posts in the last 24 hours.
+/** 
+* Counts number of posts resolved by instructors in past 24 hours.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of recently answered posts
+*/
+
 export function getRecentResolvedPosts(posts: Post[]): number {
     let recentResolvedPostsCount = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -92,7 +117,12 @@ export function getRecentResolvedPosts(posts: Post[]): number {
     return recentResolvedPostsCount;
 }
 
-// Calculate the percentage change in comments compared to the previous day.
+/** 
+* Calculates the percentage change in comments compared to the previous day.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Percentage change in number of comments on posts
+*/
+
 export function getCommentsChange(posts: Post[]): number {
     let commentsYesterday = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -109,7 +139,12 @@ export function getCommentsChange(posts: Post[]): number {
     return ((getRecentComments(posts) - commentsYesterday) / commentsYesterday) * 100;
 }
 
-// Calculate the percentage change in posts compared to the previous day.
+/** 
+* Calculates percentage change in posts compared to the previous day.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Percentage change in number of posts made
+*/
+
 export function getPostsChange(posts: Post[]): number {
     let postsYesterday = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -124,7 +159,12 @@ export function getPostsChange(posts: Post[]): number {
     return ((getRecentPosts(posts) - postsYesterday) / postsYesterday) * 100;
 }
 
-// Calculate the percentage change in resolved posts compared to the previous day.
+/** 
+* Calculates the percentage change in resolved posts compared to the previous day.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Percentage change in resolved posts
+*/
+
 export function getResolvedPostsChange(posts: Post[]): number {
     let postsYesterday = 0;
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -141,7 +181,12 @@ export function getResolvedPostsChange(posts: Post[]): number {
     return ((getRecentResolvedPosts(posts) - postsYesterday) / postsYesterday) * 100;
 }
 
-// Calculate the hours since the last unanswered post.
+/** 
+* Counts number of hours since last unanswered post was made.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of hours since last post
+*/
+
 export function getHoursSinceLastPost(posts: Post[]): number {
     let hoursSinceLastPost = 0;
     for (let i = 0; i < posts.length; i++) {
@@ -155,7 +200,12 @@ export function getHoursSinceLastPost(posts: Post[]): number {
     return hoursSinceLastPost;
 }
 
-// Generate data for a traffic graph based on post counts by date.
+/** 
+* Converts dates and post count into x axis and y axis data for traffic graph.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {any} JS Object with x: string[] of dates and y: number[] of number of posts made on that day
+*/
+
 export function getTrafficGraphData(posts: Post[]): any {
     let postCountByDate = getPostCountByDate(posts);
     let x_axis: string[] = [];
@@ -169,7 +219,12 @@ export function getTrafficGraphData(posts: Post[]): any {
     return {x: x_axis, y: traffic_data};
 }
 
-// Calculate post counts grouped by date.
+/** 
+* Counts number of posts made on each day, helper function for getTrafficGraphData
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {Map<string, number>} Map with date strings as keys and number of posts made on that date as values
+*/
+
 export function getPostCountByDate(posts: Post[]): Map<string, number> {
     let result = new Map();
     posts.forEach(post => {
@@ -184,7 +239,12 @@ export function getPostCountByDate(posts: Post[]): Map<string, number> {
     return result;
 }
 
-// Calculate the percentage of posts that have been resolved.
+/** 
+* Counts percentage of all posts resolved by instructors.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of resolved posts
+*/
+
 export function getResolvedPercentage(posts: Post[]): number {
     let resolvedCount = 0;
     posts.forEach(post => {
@@ -195,7 +255,12 @@ export function getResolvedPercentage(posts: Post[]): number {
     return (resolvedCount / posts.length) * 100;
 }
 
-// Calculate the percentage of posts that remain unresolved.
+/** 
+* Calculates percentage of all posts that have not been answered by instructors yet.
+* @param {Post[]} posts - Campuswire posts with Post interface
+* @return {number} Number of unresolved posts
+*/
+
 export function getUnresolvedPercentage(posts: Post[]): number {
     let unresolvedCount = 0;
     posts.forEach(post => {

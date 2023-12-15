@@ -28,6 +28,7 @@ function TrafficPage() {
   console.log("y", viewModel.traffic_data.y)
 
   return (
+    /* page background and headings*/
     <div style={{ backgroundColor: '#f8f2ed', minHeight: '100vh', padding: '16px' }}>
 
       <Paper elevation={3} sx={{ padding: 2, margin: 2, display: 'flex', flexDirection: 'column', backgroundColor: '#fbfcf8' }}>
