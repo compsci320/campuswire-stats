@@ -14,8 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### Our backend:
 By default, our app uses a backend hosted online. You can find server/README.md to learn more about our backend and how to run it locally instead.
 
-
-
 # How To Use Our Website
 
 ## Trends Page
