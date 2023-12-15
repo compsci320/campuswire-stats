@@ -40,19 +40,12 @@ You can sort the table by name, number of posts, number of comments, or last see
 
 
 ## Traffic Page
+You can view the traffic page by clicking the "Traffic" tab on the left.
 
-You can view the Traffic page by clicking the "Traffic" tab in the navigation bar to the left.
+In the traffic page there are several cards. Four cards have statistics that provide information on the traffic that the campuswire page has been receiving. Two cards are charts that show traffic data as well. The goal of the page is to inform the users of different traffic activity that the page has been receiving recently.
 
-The page contains 6 cards: unanswered posts, comments made in the past day, posts made in the past day, posts resolved in the past day, pie chard of resolved posts, and a bar graph of posts made by date.
+The first card shows the current number of unanswered posts, and at the bottom of the card the number of hours since the most recent unanswered post was posted is reported. The second card shows the number of comments made in the past day, and at the bottom of the card is percentage increase or decrease in that number from the previous day. The third card shows the number of posts made in the past day, and at the bottom of the card is percentage increase or decrease in that number from the previous day. The fourth card shows the number of posts resolved in the past day, and at the bottom of the card is percentage increase or decrease in that number from the previous day.
 
-1. The unanswered posts card displays the total number of posts that haven't been resolved by instructors yet.
+Below the cards showing these statistics there is a card that displays a pie chart. The pie chart reports the number of resolved posts compared to the number of unresolved posts. To the right of this card is another card that displays a line graph. This line graph displays the number of posts made on each day that the campuswire page has been active. 
 
-2. The comments in past day card displays the number of comments made up to 24 hours ago and the percentage change in number of comments made compared to the previous day.
-
-3. The posts made in past day card displays the number of posts made up to 24 hours ago and the percentage change in number of posts made compared to the previous day.
-
-4. The posts resolved in past day card displays the number of posts answered by instructions in the last 24 hours and the percentage change in number of posts resolved compared to the previous day.
-
-5. The pie chart displays the ratio of resolved posts to unresolved posts with a color-coded legend to signify which segment is which. You can also hover over each section to see its title and exact value.
-
-6. The bar chart displays the number of posts made per day on each recorded date in the dataset. You can hover over each bar to view the date and the exact number of posts made on that date.
+The cards that show statistics only work when the data being provided is current. When testing, we altered the dates in the mock data provided in order to make sure that these cards worked as planned, but with the original data the statistics don't show because they utilize the current date and time to calculate posts and comments made in the past 24 hours.
