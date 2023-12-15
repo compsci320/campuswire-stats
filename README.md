@@ -116,12 +116,19 @@ The cards that show statistics only work when the data being provided is current
 
 # Team Member Names:
 Liam Gates
+
 Derek Lacy
+
 Kevin Oliveria
+
 Sam O'Nuallain
+
 Agneshka Rohra
+
 Algis Petlin
+
 Anisha Prahti
+
 Sneha Pullanoor
 
 # GitHub Respository Link:
