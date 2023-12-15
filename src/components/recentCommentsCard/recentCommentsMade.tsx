@@ -1,12 +1,16 @@
+// Importing necessary components and icons from libraries
 import PropTypes from 'prop-types';
 import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import { Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
+// Define the RecentCommentsCard component
 export const RecentCommentsCard = (props: { difference: any; positive: boolean | undefined; sx: any; value: any; }) => {
+  // Destructuring props to extract the required values
   const { difference, positive = false, sx, value } = props;
 
   return (
+    // Render a Card component
     <Card sx={sx}>
       <CardContent>
         <Stack
@@ -15,6 +19,7 @@ export const RecentCommentsCard = (props: { difference: any; positive: boolean |
           justifyContent="space-between"
           spacing={3}
         >
+          {/* Stack for text content */}
           <Stack spacing={1}>
             <Typography
               color="text.secondary"
@@ -27,6 +32,7 @@ export const RecentCommentsCard = (props: { difference: any; positive: boolean |
             </Typography>
           </Stack>
         </Stack>
+        {/* Conditionally rendering the difference section */}
         {difference && (
           <Stack
             alignItems="center"
@@ -39,12 +45,14 @@ export const RecentCommentsCard = (props: { difference: any; positive: boolean |
               direction="row"
               spacing={0.5}
             >
+              {/* Displaying arrow icon based on positive or negative difference */}
               <SvgIcon
                 color={positive ? 'success' : 'error'}
                 fontSize="small"
               >
                 {positive ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </SvgIcon>
+              {/* Displaying the difference in percentage */}
               <Typography
                 color={positive ? 'success.main' : 'error.main'}
                 variant="body2"
@@ -65,6 +73,7 @@ export const RecentCommentsCard = (props: { difference: any; positive: boolean |
   );
 };
 
+// Defining PropTypes for the component for type checking
 RecentCommentsCard.prototypes = {
   difference: PropTypes.number,
   positive: PropTypes.bool,

@@ -40,7 +40,7 @@ export function getUnansweredPosts(posts: Post[]): number {
             unansweredPostsCount++;
         }
     });
-    return unansweredPostsCount;
+    return Math.trunc(unansweredPostsCount);
 }
 
 // Calculate the number of comments in the last 24 hours.
@@ -57,7 +57,7 @@ export function getRecentComments(posts: Post[]): number {
         });
     });
 
-    return recentCommentsCount;
+    return Math.trunc(recentCommentsCount);
 }
 
 // Calculate the number of posts in the last 24 hours.
@@ -72,7 +72,7 @@ export function getRecentPosts(posts: Post[]): number {
         }
     });
 
-    return recentPostsCount;
+    return Math.trunc(recentPostsCount);
 }
 
 // Calculate the number of resolved posts in the last 24 hours.
@@ -89,7 +89,7 @@ export function getRecentResolvedPosts(posts: Post[]): number {
         }
     });
 
-    return recentResolvedPostsCount;
+    return Math.trunc(recentResolvedPostsCount);
 }
 
 // Calculate the percentage change in comments compared to the previous day.
@@ -106,7 +106,7 @@ export function getCommentsChange(posts: Post[]): number {
             }
         });
     });
-    return ((getRecentComments(posts) - commentsYesterday) / commentsYesterday) * 100;
+    return Math.trunc(((getRecentComments(posts) - commentsYesterday) / commentsYesterday) * 100);
 }
 
 // Calculate the percentage change in posts compared to the previous day.
@@ -121,7 +121,7 @@ export function getPostsChange(posts: Post[]): number {
             postsYesterday++;
         }
     });
-    return ((getRecentPosts(posts) - postsYesterday) / postsYesterday) * 100;
+    return Math.trunc(((getRecentPosts(posts) - postsYesterday) / postsYesterday) * 100);
 }
 
 // Calculate the percentage change in resolved posts compared to the previous day.
@@ -138,7 +138,7 @@ export function getResolvedPostsChange(posts: Post[]): number {
             }
         }
     });
-    return ((getRecentResolvedPosts(posts) - postsYesterday) / postsYesterday) * 100;
+    return Math.trunc(((getRecentResolvedPosts(posts) - postsYesterday) / postsYesterday) * 100);
 }
 
 // Calculate the hours since the last unanswered post.
@@ -152,7 +152,7 @@ export function getHoursSinceLastPost(posts: Post[]): number {
         return hoursSinceLastPost;
     };
 
-    return hoursSinceLastPost;
+    return Math.trunc(hoursSinceLastPost);
 }
 
 // Generate data for a traffic graph based on post counts by date.
