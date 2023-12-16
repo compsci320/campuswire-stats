@@ -44,7 +44,7 @@ This project, Campuswire Analytics, is a web application that provides analytics
 
         reportWebVitals.ts: Web Vitals reporting
 
-        Router.tsx: React Router configuration
+        Router.tsx: React Router to handle page navigation
 
         setupTests.tsx: Setup file for Jest tests  
 
