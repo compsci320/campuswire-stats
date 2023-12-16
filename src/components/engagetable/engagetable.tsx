@@ -6,29 +6,29 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow'; 
+import TableRow from '@mui/material/TableRow';
 
- 
+// Interface for Column
 export interface Column {
   id: 'name' | 'numPosts' | 'lastSeen' | 'numComments';
   label: string;
   minWidth?: number;
   align?: 'right';
 }
-
+// Interface for Data
 export interface Data {
   name: string;
   numPosts: string;
   numComments: string;
   lastSeen: string;
 }
-
+// Interface for Components in the table
 interface MyComponentProps {
   columns: readonly Column[];
   rows: Data[];
 }
-
-export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns, rows}) => {
+// Engagement Table Component
+export const Engagetable: React.FunctionComponent<MyComponentProps> = ({ columns, rows }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -67,10 +67,10 @@ export const Engagetable: React.FunctionComponent<MyComponentProps> = ({columns,
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell 
-                          key={column.id} 
+                        <TableCell
+                          key={column.id}
                           align="center"
-                          style = {{fontSize: 'medium'}}
+                          style={{ fontSize: 'medium' }}
                         >
                           {value}
                         </TableCell>

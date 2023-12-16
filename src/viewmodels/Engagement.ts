@@ -1,3 +1,4 @@
+// Interface to hold data correlated to the analytics about user engagement
 export interface EngagementViewModel {
     nameMap: Map<string, string[]>;
     numPostsMap: Map<string, number>;

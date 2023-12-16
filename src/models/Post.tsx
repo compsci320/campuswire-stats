@@ -1,4 +1,4 @@
-// TODO: add question marks for fields that are not required -> actually that's probably not necessary
+// Interface for each post from the mock data
 export interface Post {
     id: string
     categoryId: string

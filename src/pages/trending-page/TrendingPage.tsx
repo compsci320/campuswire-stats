@@ -10,7 +10,7 @@ function TrendingPage() {
     const [data, setData] = useState(null);
     const [trend, setTrend] = useState('');
     const remoteSetTrend = (newTrend: string) => setTrend(newTrend)
-
+    // Fetch data from the Flask Server
     useEffect(() => {
         console.log('Fetching data...');
         getTrendsData()
@@ -22,7 +22,7 @@ function TrendingPage() {
             .catch(err => console.error('Error:', err));
 
     }, []);
-
+    // Set the data as Trending Post for the list of posts in the trend page
     const renderPosts = () => {
         if (data === null || trend === null)
             return [];
@@ -39,7 +39,7 @@ function TrendingPage() {
         )
         );
     };
-
+    // Set the data as entry points for the trend graph
     const renderGraphData = () => {
         if (data === null || trend === null)
             return [];
@@ -55,7 +55,7 @@ function TrendingPage() {
             })
         );
     }
-
+    // Create interfaces for the buttons to choose the type of trend
     const renderOptions = () => {
         if (data === null) return [];
 
@@ -70,6 +70,7 @@ function TrendingPage() {
 
     return (
         <>
+            {/* Page for when the data and trend has been received*/}
             {data && trend ? (
                 <>
                     <Trendbar />
@@ -83,6 +84,7 @@ function TrendingPage() {
                     {renderPosts()}
                 </>
             ) : (
+                // Page for the loading screen
                 <div className="centered">
                     <div className="trendbar-loading">
                         <div className="spinner"></div>

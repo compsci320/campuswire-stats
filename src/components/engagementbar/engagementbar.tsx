@@ -1,6 +1,6 @@
 import React from 'react';
 import './engagementbar.css';
-
+// EngagementBar Component for the Header
 function EngagementBar() {
     return (
         <div className="engagementbar shadow border-b border-gray-300 mb-8">

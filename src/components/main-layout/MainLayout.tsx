@@ -4,7 +4,7 @@ import { Drawer, IconButton } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
-
+// React Page Component
 function MainLayout() {
     const [state, setState] = React.useState({ open: false });
     const [page, setPage] = React.useState('');
@@ -22,7 +22,7 @@ function MainLayout() {
 
                 setState({ ...state, open: isOpen });
             };
-
+    // Sets up the navbar on the left
     return (
         <div>
             <Drawer
@@ -31,10 +31,10 @@ function MainLayout() {
                 onClose={toggleDrawer(false)}
                 variant="permanent"
             >
-                <Navbar 
-                    width={ WIDTH }
-                    page={ page }
-                    setPage={ remoteSetPage } 
+                <Navbar
+                    width={WIDTH}
+                    page={page}
+                    setPage={remoteSetPage}
                 />
             </Drawer>
             <div style={{ paddingLeft: WIDTH }}>

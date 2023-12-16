@@ -38,7 +38,7 @@ const createSeriesData = (data: number[]) => {
         },
     ] as AllSeriesType[];
 };
-
+// Interface for entry points in the trend page's graph
 export interface TrendGraphEntry {
     title: string,
     uniqueViewsCount: number,
@@ -47,19 +47,20 @@ export interface TrendGraphEntry {
     publishedAt: Date,
     numComments: number
 }
-
+// Interface for the list entry point in a trend graph
 export interface TrendGraphData {
     data: TrendGraphEntry[];
 }
-
+// Trend Graph Component
 export function TrendGraph(trendData: TrendGraphData) {
     console.log(trendData);
     const [type, setType] = useState('');
     const remoteSetType = (newType: string) => setType(newType) as void;
+    // Sort trendData by date
     trendData.data.sort(function (a, b) {
         return (b.publishedAt.getTime() - a.publishedAt.getTime()) * -1;
     });
-    console.log(trendData);
+    // Sort by trend
     let graphData: { [key: string]: TrendGraphEntry[] } = {};
     trendData.data.forEach((entry) => {
         let key = entry.publishedAt.toDateString() as string;
@@ -69,10 +70,12 @@ export function TrendGraph(trendData: TrendGraphData) {
             graphData[key] = [entry] as TrendGraphEntry[];
         }
     });
+    // Options for the data in the graph
     let graphType = [{ type: "Posts", setType: remoteSetType }, { type: "Likes", setType: remoteSetType }, { type: "Comments", setType: remoteSetType }];
     useEffect(() => {
         setType(graphType[0].type);
     }, []);
+    // Update the data in the graph from user input
     let dataList = Object.keys(graphData).map((key) => graphData[key].length) as number[];
     if (type === "Posts") {
         dataList = Object.keys(graphData).map((key) => graphData[key].length) as number[];
@@ -85,10 +88,10 @@ export function TrendGraph(trendData: TrendGraphData) {
 
     const seriesData = createSeriesData(dataList);
 
-    window.addEventListener('resize', function(event) {
+    window.addEventListener('resize', function (event) {
         window.location.reload();
     }, true);
-
+    // Graph Object
     return (
         <div>
             <ChartContainer
@@ -115,6 +118,7 @@ export function TrendGraph(trendData: TrendGraphData) {
                 <ChartsYAxis label={type} position="left" />
                 <ChartsXAxis label={x_title} position="bottom" />
             </ChartContainer>
+            {/* List of datas in the x-axis */}
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: 40 }}>
                 {graphType.map((item: any) => {
                     return (

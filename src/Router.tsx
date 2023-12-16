@@ -4,7 +4,7 @@ import MainLayout from './components/main-layout/MainLayout';
 import TrendingPage from "./pages/trending-page/TrendingPage";
 import TrafficPage from './pages/traffic-page/TrafficPage';
 import EngagementPage from './pages/engagement-page/EngagementPage';
-
+// Creates router to navigate between different pages of the web app
 const Router = createBrowserRouter([
   {
     path: "/",
